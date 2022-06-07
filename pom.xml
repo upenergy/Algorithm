@@ -20,6 +20,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <!--https://stackoverflow.com/questions/2619598/differences-between-dependencymanagement-and-dependencies-in-maven-->
     <!--https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html-->
 
     <modules>
