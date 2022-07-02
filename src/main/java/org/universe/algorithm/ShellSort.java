@@ -1,12 +1,12 @@
 package org.universe.algorithm;
 
 import java.util.Arrays;
-// Shell sort in Java programming
+
 
 public class ShellSort {
 
-
-  // Rearrange elements at each n/2, n/4, n/8, ... intervals
+	// Shell sort in Java programming
+	// Rearrange elements at each n/2, n/4, n/8, ... intervals
   public void shellSort(int array[], int n) {
 	  for (int interval = n / 2; interval > 0; interval /= 2) {
 	    for (int i = interval; i < n; i += 1) {
