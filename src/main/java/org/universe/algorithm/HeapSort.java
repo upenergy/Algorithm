@@ -47,4 +47,5 @@ public class HeapSort {
 	    System.out.println(Arrays.toString(array));
 	}
 	/*https://stackabuse.com/heap-sort-in-java*/
+	/*https://www.geeksforgeeks.org/java-program-for-heap-sort*/
 }
