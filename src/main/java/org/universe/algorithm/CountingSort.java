@@ -1,4 +1,4 @@
-public class CountingSort implements IArraySort {
+public class CountingSort {
 
     @Override
     public int[] sort(int[] sourceArray) throws Exception {
