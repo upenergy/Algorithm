@@ -51,7 +51,6 @@ public class TreeNode {
         new DeepFirstSort().depthFirstSearch(head);
     }
 
-    //深度优先遍历
     public void depthFirstSearch(TreeNode nodeHead) {
         if(nodeHead==null) {
             return;
@@ -70,6 +69,4 @@ public class TreeNode {
         }
 
     }
-
 }
-https://blog.51cto.com/u_15127697/4253143
