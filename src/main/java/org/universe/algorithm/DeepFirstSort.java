@@ -3,7 +3,7 @@ import java.util.Queue;
 import java.util.Stack;
 
 /**
- * 二叉树数据结构
+ * 二叉树
  * 
  *
  */
