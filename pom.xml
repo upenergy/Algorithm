@@ -6,7 +6,7 @@
     <groupId>org.universe.king</groupId>
     <artifactId>algorithm</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>pom</packaging>
 
     <name>king</name>
     <parent>
@@ -48,8 +48,8 @@
     <!--https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html-->
     <!--https://www.baeldung.com/maven-dependencymanagement-vs-dependencies-tags#:~:text=dependencyManagement%20is%20just%20a%20declaration,causes%20real%20dependency%20to%20happen.-->
     <!--https://www.quora.com/What-are-the-differences-between-dependency-management-and-dependencies-in-Maven-->
-    <modules>
+    <!-- <modules>
         <module></module>
-    </modules>
+    </modules> -->
 
 </project>
