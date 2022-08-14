@@ -25,4 +25,21 @@ public class FormerSequenceTraversal {
         }
     }
 
+    public List<Integer> preorderTraversal(TreeNode treeNode) {
+
+        if (treeNode == null) {
+            return null;
+        }
+        List<Integer> res = new LinkedList<>();
+        if (root == null) return res;
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode tmp = stack.pop();
+            res.add(tmp.val);
+            if (tmp.right != null) stack.push(tmp.right);
+            if (tmp.left != null) stack.push(tmp.left);
+        }
+        return res;
+    }
 }
