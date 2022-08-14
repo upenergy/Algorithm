@@ -1,5 +1,10 @@
 package org.universe.algorithm.binarytree;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Stack;
+
 public class FormerSequenceTraversal {
 
     public void preOrderTraverse1(TreeNode root) {
@@ -10,30 +15,38 @@ public class FormerSequenceTraversal {
         }
     }
 
-    public void preOrderTraverse2(TreeNode root) {
-        Stack<TreeNode> stack = new Stack<>();
-        TreeNode node = root;
-        while (node != null || !stack.empty()) {
-            if (node != null) {
-                System.out.print(node.val + "->");
-                stack.push(node);
-                node = node.left;
-            } else {
-                TreeNode tem = stack.pop();
-                node = tem.right;
-            }
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> results = new ArrayList<>();
+        travel(results, root);
+        return results;
+    }
+
+    private void travel(List<Integer> list, TreeNode treeNode) {
+        if(treeNode == null) {
+            return;
+        }
+        // 数据
+        list.add(treeNode.val);
+        // 左
+        if(treeNode.left != null) {
+            travel(list, treeNode.left);
+        }
+        // 右边
+        if(treeNode.right != null) {
+            travel(list, treeNode.right);
         }
     }
 
-    public List<Integer> preorderTraversal(TreeNode treeNode) {
+
+    public List<Integer> preorderTraversalOther(TreeNode treeNode) {
 
         if (treeNode == null) {
             return null;
         }
         List<Integer> res = new LinkedList<>();
-        if (root == null) return res;
+        if (treeNode == null) return res;
         Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
+        stack.push(treeNode);
         while (!stack.isEmpty()) {
             TreeNode tmp = stack.pop();
             res.add(tmp.val);
