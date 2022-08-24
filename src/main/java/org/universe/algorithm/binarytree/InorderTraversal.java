@@ -21,4 +21,21 @@ public class InorderTraversal {
             travel(list, treeNode.right);
         }
     }
+
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        TreeNode p = root;
+        while(!stack.isEmpty() || p != null) {
+            if(p != null) {
+                stack.push(p);
+                p = p.left;
+            } else {
+                TreeNode node = stack.pop();
+                result.add(node.val);  // Add after all left children
+                p = node.right;   
+            }
+        }
+        return result;
+    }
 }
