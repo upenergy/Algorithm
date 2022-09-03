@@ -1,7 +1,6 @@
 public class SwapNodesInALinkedListWithoutSwappingData {
     
-    public void addNode(int data)
-    {
+    public void addNode(int data) {
         // Create a new node
         Node newNode = new Node(data);
  
@@ -22,8 +21,7 @@ public class SwapNodesInALinkedListWithoutSwappingData {
     }
  
     // swap() will swap the given two nodes
-    public void swap(int n1, int n2)
-    {
+    public void swap(int n1, int n2) {
         Node prevNode1 = null, prevNode2 = null,
              node1 = head, node2 = head;
  
@@ -77,8 +75,7 @@ public class SwapNodesInALinkedListWithoutSwappingData {
  
     // display() will display all the
     // nodes present in the list
-    public void display()
-    {
+    public void display() {
         // Node current will point to head
         Node current = head;
  
@@ -92,5 +89,28 @@ public class SwapNodesInALinkedListWithoutSwappingData {
             current = current.next;
         }
         System.out.println();
+    }
+    public static void main(String[] args) {
+        LinkedList llist = new LinkedList();
+ 
+        /* The constructed linked list is:
+            1->2->3->4->5->6->7 */
+        llist.push(7);
+        llist.push(6);
+        llist.push(5);
+        llist.push(4);
+        llist.push(3);
+        llist.push(2);
+        llist.push(1);
+ 
+        System.out.print(
+            "\n Linked list before calling swapNodes() ");
+        llist.printList();
+ 
+        llist.swapNodes(4, 3);
+ 
+        System.out.print(
+            "\n Linked list after calling swapNodes() ");
+        llist.printList();
     }
 }
