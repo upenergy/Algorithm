@@ -3,3 +3,18 @@ http://houbb.github.io/2020/01/23/algorithm-16-binary-tree-travel
 https://www.geeksforgeeks.org/remove-duplicates-from-a-sorted-linked-list/
 https://leetcode.com/problems/remove-duplicates-from-sorted-list/
 https://git-scm.com/download/linux
+our name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+git config --list --show-origin
+git config --global user.name ""
+git config --global user.email
