@@ -17,4 +17,6 @@ After doing this, you may fix the identity used for this commit with:
 
 git config --list --show-origin
 git config --global user.name ""
-git config --global user.email
+git config --global user.email 
+
+https://www.geeksforgeeks.org/swap-nodes-in-a-linked-list-without-swapping-data/
