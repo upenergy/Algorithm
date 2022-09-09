@@ -20,3 +20,4 @@ git config --global user.name ""
 git config --global user.email 
 
 https://www.geeksforgeeks.org/swap-nodes-in-a-linked-list-without-swapping-data/
+https://linuxhandbook.com/delete-multiple-lines-vim/
