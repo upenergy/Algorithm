@@ -43,4 +43,25 @@ public class DoublyLinkedList {
         /* 7. Make last node as previous of new node */
         new_node.prev = last;
     }
+
+    public static Node reverse( Node head_ref) {
+    Node temp = null;
+    Node current = head_ref;
+ 
+    // swap next and prev for all nodes
+    // of doubly linked list
+    while (current != null)
+    {
+        temp = current.prev;
+        current.prev = current.next;
+        current.next = temp;
+        current = current.prev;
+    }
+ 
+    // Before changing head, check for the cases
+    // like empty list and list with only one node
+    if (temp != null)
+        head_ref = temp.prev;
+        return head_ref;
+    }
 }
