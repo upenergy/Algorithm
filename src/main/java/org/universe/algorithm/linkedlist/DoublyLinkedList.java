@@ -45,23 +45,45 @@ public class DoublyLinkedList {
     }
 
     public static Node reverse( Node head_ref) {
-    Node temp = null;
-    Node current = head_ref;
- 
-    // swap next and prev for all nodes
-    // of doubly linked list
-    while (current != null)
+        Node temp = null;
+        Node current = head_ref;
+    
+        // swap next and prev for all nodes
+        // of doubly linked list
+        while (current != null)
+        {
+            temp = current.prev;
+            current.prev = current.next;
+            current.next = temp;
+            current = current.prev;
+        }
+    
+        // Before changing head, check for the cases
+        // like empty list and list with only one node
+        if (temp != null)
+            head_ref = temp.prev;
+            return head_ref;
+    }
+
+
+    // Adding a node at the front of the list
+    public void push(int new_data)
     {
-        temp = current.prev;
-        current.prev = current.next;
-        current.next = temp;
-        current = current.prev;
+        /* 1. allocate node
+        * 2. put in the data */
+        Node new_Node = new Node(new_data);
+    
+        /* 3. Make next of new node as head and previous as NULL
+        */
+        new_Node.next = head;
+        new_Node.prev = null;
+    
+        /* 4. change prev of head node to new node */
+        if (head != null)
+            head.prev = new_Node;
+    
+        /* 5. move the head to point to the new node */
+        head = new_Node;
     }
- 
-    // Before changing head, check for the cases
-    // like empty list and list with only one node
-    if (temp != null)
-        head_ref = temp.prev;
-        return head_ref;
-    }
+        
 }
