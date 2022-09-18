@@ -14,6 +14,19 @@ public class DoublyLinkedList {
         Node(int d) { data = d; }
     }
 
+    public Node getNode(int data) {
+            // allocate node
+            Node newNode = new Node();
+ 
+            // put in the data
+            newNode.data = data;
+            newNode.prev = newNode.next = null;
+            return newNode;
+ 
+    }
+ 
+
+
     public void append(int new_data) {
         /* 1. allocate node
         * 2. put in the data */
