@@ -132,6 +132,26 @@ public class DoublyLinkedList {
         }
     }
 
+    public int partition (int []arr, int l, int h){
+        int x = arr[h];
+        int i = (l - 1);
+        
+        for(int j = l; j <= h - 1; j++)
+        {
+            if (arr[j] <= x)
+            {
+                i++;
+                int tmp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tmp;
+            }
+        }    
+        int tmp = arr[i + 1];
+        arr[i + 1] = arr[h];
+        arr[h] = tmp;
+        return(i + 1);
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
