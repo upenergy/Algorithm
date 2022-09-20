@@ -152,6 +152,17 @@ public class DoublyLinkedList {
         return(i + 1);
     }
 
+    public void quickSort(int []A, int l, int h) {
+        if (l < h) {
+            
+            // Partitioning index 
+            int p = partition(A, l, h); 
+            quickSort(A, l, p - 1);  
+            quickSort(A, p + 1, h);
+        }
+    }
+
+    
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
