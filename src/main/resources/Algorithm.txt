@@ -1,3 +1,6 @@
+eval `ssh-agent -s`
+ssh-add /home/austin/.ssh/id_ed25519
+
 https://houbb.github.io/2020/01/23/algorithm-16-binary-tree-travel-pic
 http://houbb.github.io/2020/01/23/algorithm-16-binary-tree-travel
 https://www.geeksforgeeks.org/remove-duplicates-from-a-sorted-linked-list/
