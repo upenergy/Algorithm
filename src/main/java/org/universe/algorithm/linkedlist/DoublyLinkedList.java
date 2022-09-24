@@ -162,6 +162,19 @@ public class DoublyLinkedList {
         }
     }
 
+
+
+    public Node split(Node head) {
+        Node fast = head, slow = head;
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        Node temp = slow.next;
+        slow.next = null;
+        return temp;
+    }
+
     
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
