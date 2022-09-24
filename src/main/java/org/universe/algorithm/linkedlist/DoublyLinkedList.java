@@ -175,6 +175,21 @@ public class DoublyLinkedList {
         return temp;
     }
 
+    public Node mergeSort(Node node) {
+        if (node == null || node.next == null) {
+            return node;
+        }
+        Node second = split(node);
+  
+        // Recur for left and right halves
+        node = mergeSort(node);
+        second = mergeSort(second);
+  
+        // Merge the two sorted halves
+        return merge(node, second);
+    }
+
+
     
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
