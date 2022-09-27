@@ -259,6 +259,22 @@ public class DoublyLinkedList {
         if (found == false)
             System.out.println("No pair found");
     }
+
+
+    public Node insert(Node head, int data) {
+        Node temp = new Node();
+        temp.data = data;
+        temp.next = temp.prev = null;
+        if (head == null)
+            (head) = temp;
+        else
+        {
+            temp.next = head;
+            (head).prev = temp;
+            (head) = temp;
+        }
+        return temp;
+    }
     
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
