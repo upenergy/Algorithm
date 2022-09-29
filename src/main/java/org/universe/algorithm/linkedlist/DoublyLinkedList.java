@@ -319,6 +319,31 @@ public class DoublyLinkedList {
     }
     
     
+    public Node deleteNode(Node del) {
+        // base case
+        if (head == null || del == null)
+            return null;
+ 
+        // If node to be deleted is head node
+        if (head == del)
+            head = del.next;
+ 
+        // Change next only if node to be
+        // deleted is NOT the last node
+        if (del.next != null)
+            del.next.prev = del.prev;
+ 
+        // Change prev only if node to be
+        // deleted is NOT the first node
+        if (del.prev != null)
+            del.prev.next = del.next;
+ 
+        del = null;
+ 
+        return head;
+    }
+
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
