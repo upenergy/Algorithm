@@ -343,6 +343,33 @@ public class DoublyLinkedList {
         return head;
     }
 
+    public void deleteNodeAtGivenPos(int n) {
+        /* if list in NULL or
+          invalid position is given */
+        if (head == null || n <= 0)
+            return;
+ 
+        Node current = head;
+        int i;
+ 
+        /*
+        * traverse up to the node at
+          position 'n' from the beginning
+        */
+        for (i = 1; current != null && i < n; i++)
+        {
+            current = current.next;
+        }
+         
+        // if 'n' is greater than the number of nodes
+        // in the doubly linked list
+        if (current == null)
+            return;
+ 
+        // delete the node pointed to by 'current'
+        deleteNode(current);
+    }
+
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
