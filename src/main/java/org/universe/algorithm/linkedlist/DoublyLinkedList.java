@@ -394,6 +394,19 @@ public class DoublyLinkedList {
         head = new_node;
     }
 
+    public void printList() {
+        Node temp = head;
+        if (temp == null)
+            System.out.print("Doubly Linked list empty");
+ 
+        while (temp != null)
+        {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
