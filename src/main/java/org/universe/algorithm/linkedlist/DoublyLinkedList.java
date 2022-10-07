@@ -407,6 +407,29 @@ public class DoublyLinkedList {
         System.out.println();
     }
 
+    public void removeDuplicates(Node head) {
+        /* if list is empty */
+        if (head== null)
+            return;
+   
+        Node current = head;
+ 
+        /* traverse the list till the last node */
+        while (current.next != null)
+        {
+            /* Compare current node with next node */
+            if (current.data == current.next.data)
+                /* delete the node pointed to by
+              ' current->next' */
+                deleteNode(head, current.next);
+   
+            /* else simply move to the next node */
+            else
+                current = current.next;
+        } 
+          
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
