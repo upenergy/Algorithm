@@ -457,6 +457,23 @@ public class DoublyLinkedList {
  
     }
 
+    public Node push(Node head, int data) {
+        /* allocate node */
+        Node newNode=new Node(data);
+        /* since we are adding at the beginning,
+        prev is always NULL */
+        newNode.prev=null;
+        /* link the old list off the new node */
+        newNode.next =head;
+        /* change prev of head node to new node */
+        if(head!=null)
+        {
+            head.prev=newNode;
+        }
+        head=newNode;
+        return head;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
