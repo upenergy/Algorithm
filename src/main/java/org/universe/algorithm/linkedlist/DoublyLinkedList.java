@@ -474,6 +474,37 @@ public class DoublyLinkedList {
         return head;
     }
 
+    public void printList(Node head) {
+        if (head == null)
+            System.out.println("Doubly Linked list empty");
+         
+        while (head != null)
+        {
+            System.out.print(head.data+" ") ;
+            head = head.next;
+        }
+    }
+
+
+    public void reverse(struct Node* head_ref) {
+        struct Node* temp = NULL;
+        struct Node* current = *head_ref;
+    
+        // swap next and prev for all nodes
+        // of doubly linked list
+        while (current != NULL) {
+            temp = current->prev;
+            current->prev = current->next;
+            current->next = temp;
+            current = current->prev;
+        }
+    
+        // Before changing head, check for the cases
+        // like empty list and list with only one node
+        if (temp != NULL)
+            head_ref = temp->prev;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
