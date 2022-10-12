@@ -505,6 +505,74 @@ public class DoublyLinkedList {
             head_ref = temp->prev;
     }
 
+    public Node deleteAllOccurOfX(Node head, int x) {
+        // if list is empty
+        if (head == null)
+            return null;
+ 
+        Node current = head;
+        Node next;
+        Node deleteAllOccurOfX(Node head, int x)
+        {
+            // if list is empty
+            if (head == null)
+                return null;
+     
+            Node current = head;
+            Node next;
+     
+            /* traverse the list up to the end */
+            while (current != null)
+            {
+                // if node found with the value 'x'
+                if (current.data == x)
+                {
+                         
+                    /* save current's next node in the
+                    pointer 'next' */
+                    next = current.next;
+     
+                    /* delete the node pointed to by
+                    'current' */
+                    head = deleteNode(head, current);
+     
+                    /* update current */
+                    current = next;
+                }
+     
+                /* else simply move to the next node */
+                else
+                    current = current.next;
+     
+            }
+     
+            return head;
+     
+        }if (current.data == x)
+            {
+                     
+                /* save current's next node in the
+                pointer 'next' */
+                next = current.next;
+ 
+                /* delete the node pointed to by
+                'current' */
+                head = deleteNode(head, current);
+ 
+                /* update current */
+                current = next;
+            }
+ 
+            /* else simply move to the next node */
+            else
+                current = current.next;
+ 
+        }
+ 
+        return head;
+ 
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
