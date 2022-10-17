@@ -30,4 +30,7 @@ https://www.geeksforgeeks.org/doubly-linked-list/
 https://www.geeksforgeeks.org/data-structures/linked-list/?ref=shm#doublyLinkedList
 https://www.geeksforgeeks.org/insert-value-sorted-way-sorted-doubly-linked-list/
 https://www.geeksforgeeks.org/remove-duplicates-sorted-doubly-linked-list/
-https://www.geeksforgeeks.org/delete-occurrences-given-key-doubly-linked-list/?ref=lbp
+https://www.geeksforgeeks.org/delete-occurrences-given-key-doubly-linked-list/
+https://www.geeksforgeeks.org/remove-duplicates-unsorted-doubly-linked-list/
+
+https://www.jianshu.com/p/b835a4d5bb4e
