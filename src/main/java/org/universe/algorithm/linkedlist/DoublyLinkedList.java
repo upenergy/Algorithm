@@ -630,6 +630,42 @@ public class DoublyLinkedList {
     }
 
 
+    public void removeDuplicates(struct Node** head_ref) {
+        // if doubly linked list is empty
+        if ((*head_ref) == NULL)
+            return;
+    
+        // unordered_set 'us' implemented as hash table
+        unordered_set<int> us;
+    
+        struct Node* current = *head_ref, *next;
+    
+        // traverse up to the end of the list
+        while (current != NULL) {
+    
+            // if current data is seen before
+            if (us.find(current->data) != us.end()) {
+    
+                // store pointer to the node next to
+                // 'current' node
+                next = current->next;
+    
+                // delete the node pointed to by 'current'
+                deleteNode(head_ref, current);
+    
+                // update 'current'
+                current = next;
+            } else {
+    
+                // insert the current data in 'us'
+                us.insert(current->data);
+    
+                // move to the next node
+                current = current->next;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
