@@ -690,6 +690,17 @@ public class DoublyLinkedList {
         (*head_ref) = new_node;
     }
 
+    public void printList(struct Node* head) {
+        // if list is empty
+        if (head == NULL)
+            cout << "Doubly Linked list empty";
+    
+        while (head != NULL) {
+            cout << head->data << " ";
+            head = head->next;
+        }
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
