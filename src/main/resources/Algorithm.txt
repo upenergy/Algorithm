@@ -20,7 +20,7 @@ After doing this, you may fix the identity used for this commit with:
 
 git config --list --show-origin
 git config --global user.name ""
-git config --global user.email 
+git config --global user.email
 
 https://www.geeksforgeeks.org/swap-nodes-in-a-linked-list-without-swapping-data/
 https://linuxhandbook.com/delete-multiple-lines-vim/
@@ -32,5 +32,7 @@ https://www.geeksforgeeks.org/insert-value-sorted-way-sorted-doubly-linked-list/
 https://www.geeksforgeeks.org/remove-duplicates-sorted-doubly-linked-list/
 https://www.geeksforgeeks.org/delete-occurrences-given-key-doubly-linked-list/
 https://www.geeksforgeeks.org/remove-duplicates-unsorted-doubly-linked-list/
+https://www.geeksforgeeks.org/sort-biotonic-doubly-linked-list/
+
 
 https://www.jianshu.com/p/b835a4d5bb4e
