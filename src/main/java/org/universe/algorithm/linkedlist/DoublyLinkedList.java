@@ -720,6 +720,33 @@ public class DoublyLinkedList {
             head_ref = temp->prev;
     }
 
+    
+    public static Node merge(Node first, Node second) {
+        // If first linked list is empty
+        if (first == null)
+            return second;
+    
+        // If second linked list is empty
+        if (second == null)
+            return first;
+    
+        // Pick the smaller value
+        if (first.data < second.data)
+        {
+            first.next = merge(first.next, second);
+            first.next.prev = first;
+            first.prev = null;
+            return first;
+        }
+        else
+        {
+            second.next = merge(first, second.next);
+            second.next.prev = second;
+            second.prev = null;
+            return second;
+        }
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
