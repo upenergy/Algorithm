@@ -747,6 +747,43 @@ public class DoublyLinkedList {
         }
     }
 
+    public static Node sort(Node head) {
+        // if list is empty or if it contains
+        // a single node only
+        if (head == null || head.next == null)
+            return head;
+    
+        Node current = head.next;
+    
+        while (current != null)
+        {
+    
+            // if true, then 'current' is the first node
+            // which is smaller than its previous node
+            if (current.data < current.prev.data)
+                break;
+    
+            // move to the next node
+            current = current.next;
+        }
+    
+        // if true, then list is already sorted
+        if (current == null)
+            return head;
+    
+        // split into two lists, one starting with 'head'
+        // and other starting with 'current'
+        current.prev.next = null;
+        current.prev = null;
+    
+        // reverse the list starting with 'current'
+        current = reverse(current);
+    
+        // merge the two lists and return the
+        // final merged doubly linked list
+        return merge(head, current);
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
