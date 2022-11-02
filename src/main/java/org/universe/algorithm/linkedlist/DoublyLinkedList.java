@@ -784,6 +784,13 @@ public class DoublyLinkedList {
         return merge(head, current);
     }
 
+    public static Node newNode(int val) {
+        Node temp = new Node();
+        temp.data = val;
+        temp.prev = temp.next = null;
+        return temp;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
