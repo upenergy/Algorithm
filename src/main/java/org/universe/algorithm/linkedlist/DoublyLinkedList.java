@@ -791,6 +791,15 @@ public class DoublyLinkedList {
         return temp;
     }
 
+    public void printList(Node head) {
+        while (head.next != null)
+        {
+            System.out.print(head.data+ " <-> ");
+            head = head.next;
+        }
+        System.out.println( head.data );
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
