@@ -800,6 +800,14 @@ public class DoublyLinkedList {
         System.out.println( head.data );
     }
 
+    static Node insert(Node head, int val) {
+        Node temp = newNode(val);
+        temp.next = head;
+        (head).prev = temp;
+        (head) = temp;
+        return head;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
