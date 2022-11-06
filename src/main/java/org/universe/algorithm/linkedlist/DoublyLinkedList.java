@@ -808,6 +808,35 @@ public class DoublyLinkedList {
         return head;
     }
 
+
+    public Node reverseList(Node head) {
+        Node left = head, right = head;
+    
+        // Traverse the list and set right pointer to
+        // end of list
+        while (right.next != null)
+            right = right.next;
+    
+        // Swap data of left and right pointer and move
+        // them towards each other until they meet or
+        // cross each other
+        while (left != right && left.prev != right)
+        {
+    
+            // Swap data of left and right pointer
+            int t = left.data;
+            left.data = right.data;
+            right.data = t;
+    
+            // Advance left pointer
+            left = left.next;
+    
+            // Advance right pointer
+            right = right.prev;
+        }
+        return head;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
