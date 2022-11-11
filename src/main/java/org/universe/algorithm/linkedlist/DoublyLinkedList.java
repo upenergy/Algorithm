@@ -870,41 +870,57 @@ public class DoublyLinkedList {
     }
 
 
-    static void insertEnd(int value)
-{
+    public void insertEnd(int value) {
   
-    // If the list is empty, create a single
-    // node circular and doubly list
-    if (start == null) {
+        // If the list is empty, create a single
+        // node circular and doubly list
+        if (start == null) {
+            Node new_node = new Node();
+            new_node.data = value;
+            new_node.next = new_node.prev = new_node;
+            start = new_node;
+            return;
+        }
+    
+        // If list is not empty
+    
+        // Find last node
+        Node last = (start).prev;
+    
+        // Create Node dynamically
         Node new_node = new Node();
         new_node.data = value;
-        new_node.next = new_node.prev = new_node;
-        start = new_node;
-        return;
+    
+        // Start is going to be
+        // next of new_node
+        new_node.next = start;
+    
+        // Make new node previous of start
+        (start).prev = new_node;
+    
+        // Make last previous of new node
+        new_node.prev = last;
+    
+        // Make new node next of old last
+        last.next = new_node;
     }
-  
-    // If list is not empty
-  
-    // Find last node
-    Node last = (start).prev;
-  
-    // Create Node dynamically
-    Node new_node = new Node();
-    new_node.data = value;
-  
-    // Start is going to be
-    // next of new_node
-    new_node.next = start;
-  
-    // Make new node previous of start
-    (start).prev = new_node;
-  
-    // Make last previous of new node
-    new_node.prev = last;
-  
-    // Make new node next of old last
-    last.next = new_node;
-}
+
+    public void insertAfter(int value1, int value2) {
+        Node new_node = new Node();
+        new_node.data = value1; // Inserting the data
+    
+        // Find node having value2 and next node of it
+        Node temp = start;
+        while (temp.data != value2)
+            temp = temp.next;
+        Node next = temp.next;
+    
+        // insert new_node between temp and next.
+        temp.next = new_node;
+        new_node.prev = temp;
+        new_node.next = next;
+        next.prev = new_node;
+    }
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
