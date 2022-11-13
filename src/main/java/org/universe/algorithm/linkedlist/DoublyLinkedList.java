@@ -941,6 +941,23 @@ public class DoublyLinkedList {
         start = new_node;
     }
 
+    public void insertAfter(int value1, int value2) {
+        Node new_node = new Node();
+        new_node.data = value1; // Inserting the data
+    
+        // Find node having value2 and next node of it
+        Node temp = start;
+        while (temp.data != value2)
+            temp = temp.next;
+        Node next = temp.next;
+    
+        // insert new_node between temp and next.
+        temp.next = new_node;
+        new_node.prev = temp;
+        new_node.next = next;
+        next.prev = new_node;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
