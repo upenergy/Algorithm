@@ -990,6 +990,28 @@ public class DoublyLinkedList {
         // Make new node next of old last
         last.next = new_node;
     }
+
+    public void display() {
+        Node temp = start;
+  
+        System.out.printf(
+            "\nTraversal in forward direction \n");
+        while (temp.next != start) {
+            System.out.printf("%d ", temp.data);
+            temp = temp.next;
+        }
+        System.out.printf("%d ", temp.data);
+  
+        System.out.printf(
+            "\nTraversal in reverse direction \n");
+        Node last = start.prev;
+        temp = last;
+        while (temp.prev != last) {
+            System.out.printf("%d ", temp.data);
+            temp = temp.prev;
+        }
+        System.out.printf("%d ", temp.data);
+    }
   
 
     public static void main(String[] args) {
