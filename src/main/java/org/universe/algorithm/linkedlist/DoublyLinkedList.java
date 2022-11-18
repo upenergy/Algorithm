@@ -1026,6 +1026,20 @@ public class DoublyLinkedList {
         }
     }
 
+    public void printUnrolledList(Node n) {
+        while (n != null)
+        {
+        
+            // Print elements in current node
+            for(int i = 0; i < n.numElements; i++)
+                System.out.print(n.array[i] + " ");
+    
+            // Move to next node
+            n = n.next;
+        }
+    }
+
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
