@@ -1039,6 +1039,31 @@ public class DoublyLinkedList {
         }
     }
 
+    public static Node createList(int arr[], int n) {
+        Node head = null;
+        Node tmp = null;
+ 
+        // Traversing the passed array
+        for (int i = 0; i < n; i++) {
+ 
+            // Creating a node if the list
+            // is empty
+            if (head == null) {
+                tmp = head = new Node();
+            }
+            else {
+                tmp.next = new Node();
+                tmp = tmp.next;
+            }
+ 
+            // Created a node with data and
+            // setting child and next pointer
+            // as NULL.
+            tmp.data = arr[i];
+            tmp.next = tmp.child = null;
+        }
+        return head;
+    }
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
