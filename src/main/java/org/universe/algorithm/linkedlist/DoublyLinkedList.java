@@ -1065,6 +1065,20 @@ public class DoublyLinkedList {
         return head;
     }
 
+    public static void printMultiLevelList(Node head) {
+ 
+        // While head is not null
+        while (head != null) {
+            if (head.child != null) {
+                printMultiLevelList(head.child);
+            }
+            System.out.print(head.data + " ");
+            head = head.next;
+        }
+    }
+
+
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
