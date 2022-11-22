@@ -1077,6 +1077,23 @@ public class DoublyLinkedList {
         }
     }
 
+    public int GetNth(int index) {
+        Node current = head;
+        int count = 0; /* index of Node we are
+                          currently looking at */
+        while (current != null)
+        {
+            if (count == index)
+                return current.data;
+            count++;
+            current = current.next;
+        }
+ 
+        /* if we get to this line, the caller was asking
+        for a non-existent element so we assert fail */
+        assert (false);
+        return 0;
+    }
 
 
     public static void main(String[] args) {
