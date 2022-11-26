@@ -1079,7 +1079,7 @@ public class DoublyLinkedList {
 
     public int GetNth(int index) {
         Node current = head;
-        int count = 0; /* index of Node we are
+        int count = 0; /* index of Node we a`are
                           currently looking at */
         while (current != null)
         {
@@ -1095,6 +1095,18 @@ public class DoublyLinkedList {
         return 0;
     }
 
+    
+    public void push(int new_data) {
+ 
+        /* 1. alloc the Node and put data*/
+        Node newNode = new Node(newData);
+ 
+        /* 2. Make next of new Node as head */
+        newNode.next = head;
+ 
+        /* 3. Move the head to point to new Node */
+        head = new_Node;
+    }
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
