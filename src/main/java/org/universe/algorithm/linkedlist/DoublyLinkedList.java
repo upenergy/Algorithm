@@ -1133,6 +1133,23 @@ public class DoublyLinkedList {
         System.out.println(temp.data);
     }
 
+    public Node getIntersectionNode(Node head1, Node head2) {
+        while (head2 != null) {
+            Node temp = head1;
+            while (temp != null) {
+                // if both Nodes are same
+                if (temp == head2) {
+                    return head2;
+                }
+                temp = temp.next;
+            }
+            head2 = head2.next;
+        }
+        // If intersection is not present between the lists,
+        // return NULL.
+        return null;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
