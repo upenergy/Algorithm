@@ -1150,6 +1150,24 @@ public class DoublyLinkedList {
         return null;
     }
 
+    public Node addToEmpty(Node last, int data) {
+        // This function is only for empty list
+        if (last != null)
+            return last;
+    
+        // Creating a node dynamically.
+        Node temp = new Node();
+    
+        // Assigning the data.
+        temp.data = data;
+        last = temp;
+        // Note : list was empty. We link single node
+        // to itself.
+        temp.next = last;
+    
+        return last;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
