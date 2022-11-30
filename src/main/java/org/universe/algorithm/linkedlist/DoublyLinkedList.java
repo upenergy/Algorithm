@@ -1168,6 +1168,17 @@ public class DoublyLinkedList {
         return last;
     }
 
+    public Node addBegin(Node last, int data) {
+        if (last == null)
+            return addToEmpty(last, data);
+        
+        Node temp = new Node();
+        temp.data = data;
+        temp.next = last.next;
+        last.next = temp;
+        return last;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
