@@ -1179,6 +1179,24 @@ public class DoublyLinkedList {
         return last;
     }
 
+    public Node addEnd(Node last, int data) {
+        if (last == null)
+            return addToEmpty(last, data);
+    
+        // Creating a node dynamically.
+        Node temp = new Node();
+    
+        // Assigning the data.
+        temp.data = data;
+    
+        // Adjusting the links.
+        temp.next = last.next;
+        last.next = temp;
+        last = temp;
+    
+        return last;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
