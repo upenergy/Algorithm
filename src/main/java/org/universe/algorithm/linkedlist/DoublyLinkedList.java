@@ -1221,6 +1221,60 @@ public class DoublyLinkedList {
         return last;
     }
 
+    public Node deleteKthNode(Node head, int k) {
+        // If linked list is empty
+        if (head == null)
+            return null;
+    
+        if (k == 1)
+        {
+            head = freeList(head);
+            return null;
+        }
+    
+        // Initialize ptr and prev before 
+        // starting traversal.
+        Node ptr = head, prev = null;
+    
+        // Traverse list and delete 
+        // every k-th node
+        int count = 0;
+        while (ptr != null)
+        {
+            // increment Node count
+            count++;
+    
+            // check if count is equal to k
+            // if yes, then delete current Node
+            if (k == count)
+            {
+                // put the next of current Node in
+                // the next of previous Node
+                prev.next = ptr.next;
+    
+                // set count = 0 to reach further
+                // k-th Node
+                count = 0;
+            }
+    
+            // update prev if count is not 0
+            if (count != 0)
+                prev = ptr;
+    
+            ptr = prev.next;
+        }
+        return head;
+    }
+
+    public void displayList(Node head){
+        Node temp = head;
+        while (temp != null)
+        {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
