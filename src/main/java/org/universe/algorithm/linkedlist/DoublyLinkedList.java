@@ -1313,6 +1313,28 @@ public class DoublyLinkedList {
         // node
         head = dummy.next;
     }
+
+    public void BToDLL(Node root) {
+        // Base cases
+        if (root == null)
+            return;
+  
+        // Recursively convert right subtree
+        BToDLL(root.right);
+  
+        // insert root into DLL
+        root.right = head;
+  
+        // Change left pointer of previous head
+        if (head != null)
+            head.left = root;
+  
+        // Change head of Doubly linked list
+        head = root;
+  
+        // Recursively convert left subtree
+        BToDLL(root.left);
+    }
     
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
