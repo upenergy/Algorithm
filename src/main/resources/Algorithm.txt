@@ -47,3 +47,5 @@ https://www.jianshu.com/p/b835a4d5bb4e
 https://www.geeksforgeeks.org/deletion-in-doubly-circular-linked-list/
 https://www.geeksforgeeks.org/multilevel-linked-list/
 https://www.geeksforgeeks.org/write-a-function-to-get-nth-node-in-a-linked-list/
+https://www.geeksforgeeks.org/insert-node-n-th-node-end/
+https://www.geeksforgeeks.org/reverse-a-linked-list/
