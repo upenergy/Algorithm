@@ -1335,6 +1335,36 @@ public class DoublyLinkedList {
         // Recursively convert left subtree
         BToDLL(root.left);
     }
+
+
+    public void insertAfterNthNode(Node head, int n, int x) {
+        // if list is empty
+        if (head == null)
+            return;
+    
+        // get a new node for the value 'x'
+        Node newNode = getNode(x);
+        Node ptr = head;
+        int len = 0, i;
+    
+        // find length of the list, i.e, the
+        // number of nodes in the list
+        while (ptr != null)
+        {
+            len++;
+            ptr = ptr.next;
+        }
+    
+        // traverse up to the nth node from the end
+        ptr = head;
+        for (i = 1; i <= (len - n); i++)
+            ptr = ptr.next;
+    
+        // insert the 'newNode' by making the
+        // necessary adjustment in the links
+        newNode.next = ptr.next;
+        ptr.next = newNode;
+    }
     
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
