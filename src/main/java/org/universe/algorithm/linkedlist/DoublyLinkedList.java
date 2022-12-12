@@ -1386,6 +1386,29 @@ public class DoublyLinkedList {
     }
 
 
+
+
+    public void reverseLL() {
+ 
+        // Create a stack "s" of Node type
+        Stack<Node> s = new Stack<>();
+        Node temp = head;
+        while (temp.next != null) {
+            // Push all the nodes in to stack
+            s.add(temp);
+            temp = temp.next;
+        }
+        head = temp;
+        while (!s.isEmpty()) {
+            // Store the top value of stack in list
+            temp.next = s.peek();
+            // Pop the value from stack
+            s.pop();
+            // update the next pointer in the list
+            temp = temp.next;
+        }
+        temp.next = null;
+    }
     
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
