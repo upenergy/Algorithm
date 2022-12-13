@@ -1409,6 +1409,17 @@ public class DoublyLinkedList {
         }
         temp.next = null;
     }
+
+    public void printReverse(Node head){
+        if (head == null) return;
+ 
+        // print list of head node
+        printReverse(head.next);
+ 
+        // After everything else is printed
+        System.out.print(head.data+" ");
+    }
+
     
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
