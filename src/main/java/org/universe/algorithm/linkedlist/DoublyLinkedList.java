@@ -1538,6 +1538,19 @@ public class DoublyLinkedList {
     }
 
 
+    public void push(int newData){
+        /* 1 & 2: Allocate the Node &
+                  Put in the data*/
+        Node newNode = new Node(newData);
+ 
+        /* 3. Make next of new Node as head */
+        newNode.next = head;
+ 
+        /* 4. Move the head to point to new Node */
+        head = newNode;
+    }
+
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
