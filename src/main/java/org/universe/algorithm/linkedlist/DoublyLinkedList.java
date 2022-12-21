@@ -1600,6 +1600,16 @@ public class DoublyLinkedList {
         }
     }
 
+    public Node getNode(int data) {
+        // allocate memory for the node
+        Node newNode = new Node();
+    
+        // put in the data
+        newNode.data = data;
+        newNode.next = null;
+        return newNode;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
