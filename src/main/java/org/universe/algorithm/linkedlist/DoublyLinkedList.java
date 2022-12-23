@@ -1639,6 +1639,32 @@ public class DoublyLinkedList {
         ptr.next = newNode;
     }
 
+
+    public void insertAfterNthNode(Node head, int x) {
+ 
+        // Base case
+        if (head == null)
+            return;
+ 
+        // recursively traverse till the last node
+        insertAfterNthNode(head.next, x);
+ 
+        // condition to insert the node after nth node from
+        // end
+        if (--n == 0) {
+ 
+            // create a node with the given value
+            Node temp = getNode(x);
+ 
+            // update the next pointer to point next node in
+            // the list
+            temp.next = head.next;
+ 
+            // make sure head points to newly inserted node
+            head.next = temp;
+        }
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
