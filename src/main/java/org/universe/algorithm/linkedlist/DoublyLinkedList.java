@@ -1779,6 +1779,42 @@ public class DoublyLinkedList {
         }
     }
 
+    public Node deleteLast(Node head,int x) {
+        Node temp = head;
+        Node ptr = null;
+        
+        while (temp != null)
+        {
+            
+            // If found key, update
+            if (temp.data == x)
+                ptr = temp;
+                
+            temp = temp.next;
+        }
+        
+        // If the last occurrence is the last node
+        if (ptr != null && ptr.next == null)
+        {
+            temp = head;
+            
+            while (temp.next != ptr)
+            {
+                temp = temp.next;
+            }
+            temp.next = null;
+        }
+        
+        // If it is not the last node
+        if (ptr != null && ptr.next != null)
+        {
+            ptr.data = ptr.next.data;
+            temp = ptr.next;
+            ptr.next = ptr.next.next;
+        }
+        return head;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
