@@ -1815,6 +1815,22 @@ public class DoublyLinkedList {
         return head;
     }
 
+
+    public void display(Node head) {
+        Node temp = head;
+        if (head == null)
+        {
+            System.out.print("NULL\n");
+            return;
+        }
+        while (temp != null)
+        {
+            System.out.print( temp.data+" --> ");
+            temp = temp.next;
+        }
+        System.out.print("NULL\n");
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
