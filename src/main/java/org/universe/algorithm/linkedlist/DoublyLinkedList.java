@@ -1831,6 +1831,38 @@ public class DoublyLinkedList {
         System.out.print("NULL\n");
     }
 
+    public Node deleteLast(Node head, int key) {
+        // Initialize previous of Node to be deleted 
+        Node x = null; 
+    
+        // Start from head and find the Node to be 
+        // deleted 
+        Node temp = head; 
+        while (temp != null) 
+        { 
+            // If we found the key, update xv 
+            if (temp.key == key) 
+                x = temp; 
+    
+            temp = temp.next; 
+        } 
+    
+        // key occurs at-least once 
+        if (x != null) 
+        { 
+    
+            // Copy key of next Node to x 
+            x.key = x.next.key; 
+    
+            // Store and unlink next 
+            temp = x.next; 
+            x.next = x.next.next; 
+    
+            // Free memory for next 
+        } 
+        return head;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
