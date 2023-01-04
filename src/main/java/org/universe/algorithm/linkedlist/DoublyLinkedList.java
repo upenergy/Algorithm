@@ -1878,6 +1878,13 @@ public class DoublyLinkedList {
         System.out.print("NULL\n");
     }
 
+    public Node newNode(int key) { 
+        Node temp = new Node(); 
+        temp.key = key; 
+        temp.next = null; 
+        return temp; 
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
