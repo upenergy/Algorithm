@@ -1970,6 +1970,13 @@ public class DoublyLinkedList {
     }
 
 
+    public Node newNode(int x) {
+        Node temp = new Node();
+        temp.data = x;
+        temp.next = null;
+        return temp;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
