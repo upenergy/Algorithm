@@ -1977,6 +1977,15 @@ public class DoublyLinkedList {
         return temp;
     }
 
+    public Node freeList(Node node) {
+        while (node != null)
+        {
+            Node next = node.next;
+            node = next;
+        }
+        return node;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
