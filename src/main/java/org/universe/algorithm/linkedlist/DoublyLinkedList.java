@@ -1986,6 +1986,18 @@ public class DoublyLinkedList {
         return node;
     }
 
+    public Node reverselist(Node node) {
+        Node prev = null, curr = node, next;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        node = prev;
+        return node;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
