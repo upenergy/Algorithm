@@ -2045,6 +2045,40 @@ public class DoublyLinkedList {
         node = node.next;
     }
 
+    public void reorderListUtil(Node right) {
+ 
+        if (right == null) {
+            return;
+        }
+ 
+        reorderListUtil(right.next);
+ 
+        // we set left = null, when we reach stop condition,
+        // so no processing required after that
+        if (left == null) {
+            return;
+        }
+ 
+        // Stop condition: odd case : left = right, even
+        // case : left.next = right
+        if (left != right && left.next != right) {
+            Node temp = left.next;
+            left.next = right;
+            right.next = temp;
+            left = temp;
+        }
+        else { // stop condition , set null to left nodes
+            if (left.next == right) {
+                left.next.next = null; // even case
+                left = null;
+            }
+            else {
+                left.next = null; // odd case
+                left = null;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
