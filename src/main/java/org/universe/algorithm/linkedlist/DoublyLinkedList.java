@@ -564,7 +564,6 @@ public class DoublyLinkedList {
                     current = current.next;
      
             }
-     
             return head;
      
         }if (current.data == x)
@@ -663,7 +662,7 @@ public class DoublyLinkedList {
         while (current != NULL) {
     
             // if current data is seen before
-            if (us.find(current->data) != us.end()) {
+      ) {
     
                 // store pointer to the node next to
                 // 'current' node
