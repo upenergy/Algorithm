@@ -2124,7 +2124,22 @@ public class DoublyLinkedList {
         return head; 
     }
 
-    
+    public Node deleteEvenNodes(Node param) {
+		    Node ptr = param;
+		    Node next;
+		 
+		    while (ptr != null)
+		    {
+		        next = ptr.next;
+		         
+		        // if true, delete node 'ptr'
+		        if (ptr.data % 2 == 0)
+		            deleteNode(param, ptr);
+		        ptr = next;
+		    }
+		    return param;
+		}
+		
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
