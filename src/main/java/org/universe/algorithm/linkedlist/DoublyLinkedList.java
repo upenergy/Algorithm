@@ -2140,6 +2140,22 @@ public class DoublyLinkedList {
 		    return param;
 		}
 		
+		public static boolean isEvenParity(int x) {
+	    // parity will store the
+	    // count of set bits
+	    int parity = 0;
+	    while (x != 0) {
+	      if (x % 2 == 1)
+	        parity++;
+	      x = x >> 1;
+	    }
+	 
+	    if (parity % 2 == 0)
+	      return true;
+	    else
+	      return false;
+	  }
+		
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
