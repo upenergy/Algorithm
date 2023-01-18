@@ -2156,6 +2156,24 @@ public class DoublyLinkedList {
 	      return false;
 	  }
 		
+		
+		public static void deleteEvenParityNodes() {
+	    Node ptr = head;
+	    Node next;
+	 
+	    // Iterating through
+	    // the linked list
+	    while (ptr != null) {
+	      next = ptr.next;
+	 
+	      // If node's data's parity
+	      // is even
+	      if (isEvenParity(ptr.data)) {
+	        deleteNode(ptr);
+	      }
+	      ptr = next;
+    }
+    
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
