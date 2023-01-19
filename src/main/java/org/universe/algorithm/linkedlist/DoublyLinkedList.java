@@ -564,7 +564,6 @@ public class DoublyLinkedList {
                     current = current.next;
      
             }
-     
             return head;
      
         }if (current.data == x)
@@ -663,7 +662,7 @@ public class DoublyLinkedList {
         while (current != NULL) {
     
             // if current data is seen before
-            if (us.find(current->data) != us.end()) {
+      ) {
     
                 // store pointer to the node next to
                 // 'current' node
@@ -2124,6 +2123,55 @@ public class DoublyLinkedList {
         return head; 
     }
 
+    public Node deleteEvenNodes(Node param) {
+		    Node ptr = param;
+		    Node next;
+		 
+		    while (ptr != null)
+		    {
+		        next = ptr.next;
+		         
+		        // if true, delete node 'ptr'
+		        if (ptr.data % 2 == 0)
+		            deleteNode(param, ptr);
+		        ptr = next;
+		    }
+		    return param;
+		}
+		
+		public static boolean isEvenParity(int x) {
+	    // parity will store the
+	    // count of set bits
+	    int parity = 0;
+	    while (x != 0) {
+	      if (x % 2 == 1)
+	        parity++;
+	      x = x >> 1;
+	    }
+	 
+	    if (parity % 2 == 0)
+	      return true;
+	    else
+	      return false;
+	  }
+		
+		
+		public static void deleteEvenParityNodes() {
+	    Node ptr = head;
+	    Node next;
+	 
+	    // Iterating through
+	    // the linked list
+	    while (ptr != null) {
+	      next = ptr.next;
+	 
+	      // If node's data's parity
+	      // is even
+	      if (isEvenParity(ptr.data)) {
+	        deleteNode(ptr);
+	      }
+	      ptr = next;
+    }
 
     public void zigZagList(Node head) {
         // If flag is true, then
@@ -2163,7 +2211,6 @@ public class DoublyLinkedList {
             /* flip flag for reverse checking */
             flag = !(flag);
         }
-    }
     
     public static void main(String[] args) {
         LinkedList list = new LinkedList();

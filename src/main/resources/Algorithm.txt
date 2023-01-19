@@ -31,6 +31,7 @@ https://www.geeksforgeeks.org/data-structures/linked-list/?ref=shm#doublyLinkedL
 https://www.geeksforgeeks.org/insert-value-sorted-way-sorted-doubly-linked-list/
 https://www.geeksforgeeks.org/remove-duplicates-sorted-doubly-linked-list/
 https://www.geeksforgeeks.org/delete-occurrences-given-key-doubly-linked-list/
+https://www.geeksforgeeks.org/delete-all-the-even-nodes-from-a-doubly-linked-list
 
 
 
