@@ -2211,6 +2211,18 @@ public class DoublyLinkedList {
             /* flip flag for reverse checking */
             flag = !(flag);
         }
+    }
+
+
+    public void printLL(){
+        Node t = head;
+        while (t != null) {
+            System.out.print(t.data + " ->");
+            t = t.next;
+        }
+        System.out.println();
+    }
+
     
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
