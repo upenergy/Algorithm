@@ -2223,7 +2223,24 @@ public class DoublyLinkedList {
         System.out.println();
     }
 
-    
+    public Node zigZag(Node node, int flag) {
+        if (node == null || node.next == null) {
+            return node;
+        }
+        if (flag == 0) {
+            if (node.data > node.next.data) {
+                swap(node, node.next);
+            }
+            return zigZag(node.next, 1);
+        }
+        else {
+            if (node.data < node.next.data) {
+                swap(node, node.next);
+            }
+            return zigZag(node.next, 0);
+        }
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
