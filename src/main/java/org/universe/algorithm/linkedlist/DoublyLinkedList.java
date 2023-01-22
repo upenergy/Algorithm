@@ -2223,6 +2223,7 @@ public class DoublyLinkedList {
         System.out.println();
     }
 
+    /** Rearrange the linked list */
     public Node zigZag(Node node, int flag) {
         if (node == null || node.next == null) {
             return node;
