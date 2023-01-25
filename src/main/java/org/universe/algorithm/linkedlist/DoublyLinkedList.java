@@ -2255,6 +2255,48 @@ public class DoublyLinkedList {
         System.out.println(ll);
     }
 
+    public class Node {
+        int data;
+        Node next;
+        Node(int data){
+            this.data = data;
+            next = null;
+        }
+    }
+
+    public void setMiddleHead() {
+        if (head == null)
+            return;
+      
+        // To traverse list nodes one
+        // by one
+        Node one_node = head;
+      
+        // To traverse list nodes by
+        // skipping one.
+        Node two_node = head;
+      
+        // To keep track of previous of middle
+        Node prev = null;
+        while (two_node != null &&
+               two_node.next != null) {
+      
+            /* for previous node of middle node */
+            prev = one_node;
+      
+            /* move one node each time*/
+            two_node = two_node.next.next;
+      
+            /* move two node each time*/
+            one_node = one_node.next;
+        }
+      
+        /* set middle node at head */
+        prev.next = prev.next.next;
+        one_node.next = head;
+        head = one_node;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
