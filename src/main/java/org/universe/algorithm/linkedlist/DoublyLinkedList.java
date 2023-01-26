@@ -2297,6 +2297,22 @@ public class DoublyLinkedList {
         head = one_node;
     }
 
+    public Node flatten(Node root) {
+        // Base Cases
+        if (root == null || root.right == null)
+            return root;
+ 
+        // recur for list on right
+        root.right = flatten(root.right);
+ 
+        // now merge
+        root = merge(root, root.right);
+ 
+        // return the root
+        // it will be in turn merged with its left
+        return root;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
