@@ -2327,6 +2327,17 @@ public class DoublyLinkedList {
     }
 
 
+    public class Node {
+         
+        int data;
+        Node next, child;
+         
+        Node(int d) {
+            data = d;
+            next = child = null;
+        }
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
