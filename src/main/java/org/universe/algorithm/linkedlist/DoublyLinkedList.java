@@ -885,6 +885,80 @@ public class DoublyLinkedList {
         return head;
     }
 
+
+    static Node sortedMerge(Node a, Node b)
+    {
+ 
+        // Reverse Linked List 'a'
+        a = reverseList(a);
+ 
+        // Reverse Linked List 'b'
+        b = reverseList(b);
+ 
+        // Initialize head of resultant list
+        Node head = null;
+ 
+        Node temp;
+ 
+        // Traverse both lists while both of them
+        // have nodes.
+        while (a != null && b != null) {
+ 
+            // If a's current value is greater than or equal
+            // to b's current value.
+            if (a.key >= b.key) {
+ 
+                // Store next of current Node in first list
+                temp = a.next;
+ 
+                // Add 'a' at the front of resultant list
+                a.next = head;
+ 
+                // Make 'a' - head of the result list
+                head = a;
+ 
+                // Move ahead in first list
+                a = temp;
+            }
+ 
+            // If b's value is greater. Below steps are
+            // similar to above (Only 'a' is replaced with
+            // 'b')
+            else {
+ 
+                temp = b.next;
+                b.next = head;
+                head = b;
+                b = temp;
+            }
+        }
+ 
+        // If second list reached end, but first list has
+        // nodes. Add remaining nodes of first list at the
+        // beginning of result list
+        while (a != null) {
+ 
+            temp = a.next;
+            a.next = head;
+            head = a;
+            a = temp;
+        }
+ 
+        // If first list reached end, but second list has
+        // nodes. Add remaining nodes of second list at the
+        // beginning of result list
+        while (b != null) {
+ 
+            temp = b.next;
+            b.next = head;
+            head = b;
+            b = temp;
+        }
+ 
+        // Return the head of the result list
+        return head;
+    }
+
     public Node push(Node head_ref, char new_data) {
         Node new_node = new Node();
         new_node.data = new_data;
@@ -2390,69 +2464,16 @@ public class DoublyLinkedList {
         }
     }
 
-
-    public Node sortedMerge(Node headA, Node headB)
-    {
- 
-        /* a dummy first node to
-           hang the result on */
-        Node dummyNode = new Node(0);
- 
-        /* tail points to the
-        last result node */
-        Node tail = dummyNode;
-        while (true) {
- 
-            /* if either list runs out,
-            use the other list */
-            if (headA == null) {
-                tail.next = headB;
-                break;
-            }
-            if (headB == null) {
-                tail.next = headA;
-                break;
-            }
- 
-            /* Compare the data of the two
-            lists whichever lists' data is
-            smaller, append it into tail and
-            advance the head to the next Node
-            */
-            if (headA.data <= headB.data) {
-                tail.next = headA;
-                headA = headA.next;
-            }
-            else {
-                tail.next = headB;
-                headB = headB.next;
-            }
- 
-            /* Advance the tail */
-            tail = tail.next;
+    public boolean isPresent(Node head, int data) {
+        Node t = head;
+        while (t != null) {
+            if (t.data == data)
+                return true;
+            t = t.next;
         }
-        return dummyNode.next;
+        return false;
     }
-
-
-
-
-    public Node sortedMerge(Node A, Node B) {
- 
-        if (A == null)
-            return B;
-        if (B == null)
-            return A;
- 
-        if (A.data < B.data) {
-            A.next = sortedMerge(A.next, B);
-            return A;
-        }
-        else {
-            B.next = sortedMerge(A, B.next);
-            return B;
-        }
-    }
+    
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
