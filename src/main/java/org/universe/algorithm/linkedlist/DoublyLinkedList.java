@@ -2486,6 +2486,47 @@ public class DoublyLinkedList {
         }
     }
 
+    public void mergeLists(Node a, Node b) {
+        // run till either one of a or b runs out
+        while (a != null && b != null) {
+            // for each element of LL1,
+            // compare it with first element of LL2.
+            if (a.data > b.data) {
+                // swap the two elements involved
+                // if LL1 has a greater element
+                int temp = a.data;
+                a.data = b.data;
+                b.data = temp;
+ 
+                Node temp2 = b;
+ 
+                // To keep LL2 sorted, place first
+                // element of LL2 at its correct place
+                if (b.next != null
+                    && b.data > b.next.data) {
+                    b = b.next;
+                    Node ptr = b;
+                    Node prev = null;
+ 
+                    // find mismatch by traversing the
+                    // second linked list once
+                    while (ptr != null
+                           && ptr.data < temp2.data) {
+                        prev = ptr;
+                        ptr = ptr.next;
+                    }
+ 
+                    // correct the pointers
+                    prev.next = temp2;
+                    temp2.next = ptr;
+                }
+            }
+ 
+            // move LL1 pointer to next element
+            a = a.next;
+        }
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
