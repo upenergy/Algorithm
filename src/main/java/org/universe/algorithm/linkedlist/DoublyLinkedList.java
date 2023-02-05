@@ -2527,6 +2527,24 @@ public class DoublyLinkedList {
         }
     }
 
+    public void getUnion(Node head1, Node head2) {
+        Node t1 = head1, t2 = head2;
+ 
+        // insert all elements of list1 in the result
+        while (t1 != null) {
+            push(t1.data);
+            t1 = t1.next;
+        }
+ 
+        // insert those elements of list2
+        // that are not present
+        while (t2 != null) {
+            if (!isPresent(head, t2.data))
+                push(t2.data);
+            t2 = t2.next;
+        }
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
