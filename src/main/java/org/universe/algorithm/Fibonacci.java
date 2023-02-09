@@ -17,6 +17,15 @@ public class Fibonacci {
         
         return f[n];
     }
+
+    public int fib(int n) {
+        int F[][] = new int[][]{{1,1},{1,0}};
+        if (n == 0)
+            return 0;
+        power(F, n-1);
+        
+        return F[0][0];
+    }
       
     public static void main (String args[]) {
         int n = 9;
