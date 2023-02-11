@@ -50,7 +50,17 @@ public class Fibonacci {
         F[1][1] = w;
     }
 
-      
+
+    public void power(int F[][], int n) {
+        int i;
+        int M[][] = new int[][]{{1,1},{1,0}};
+        
+        // n - 1 times multiply the matrix to {{1,0},{0,1}}
+        for (i = 2; i <= n; i++){
+            multiply(F, M);
+        }
+    }
+
     public static void main (String args[]) {
         int n = 9;
         System.out.println(fib(n));
