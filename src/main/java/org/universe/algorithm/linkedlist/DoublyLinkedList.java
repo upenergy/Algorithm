@@ -2596,6 +2596,20 @@ public class DoublyLinkedList {
         return levelNo;
     }
 
+    public void dfs(Node root, Map<Integer, Integer> unmap, int depth){
+        if(root == null) return;
+         
+        // Increment the count of nodes at depth in map
+        if(unmap.containsKey(depth)){
+            unmap.put(depth, unmap.get(depth)+1);
+        }else{
+            unmap.put(depth, 1);
+        }
+        // unmap.put(depth, unmap.get(depth) + 1);
+        dfs(root.left, unmap, depth+1);
+        dfs(root.right, unmap, depth+1);
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
