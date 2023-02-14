@@ -2610,6 +2610,26 @@ public class DoublyLinkedList {
         dfs(root.right, unmap, depth+1);
     }
 
+    public int maxNodeLevel(Node root) {
+        Map<Integer, Integer> unmap = new HashMap<Integer, Integer>();
+        dfs(root, unmap, 0);
+        int maxx = Integer.MIN_VALUE;
+        int result = 0;
+         
+        for(Integer i : unmap.keySet()){
+            if(unmap.get(i) > maxx){
+                result = i;
+                maxx = unmap.get(i);
+            }
+            else if(unmap.get(i) == maxx){
+                result = Math.min(result, i);
+            }
+            // System.out.println(i + " -> " + unmap.get(i));
+        }
+        return result;
+    }
+
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
