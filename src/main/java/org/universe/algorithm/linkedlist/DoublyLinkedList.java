@@ -2629,6 +2629,12 @@ public class DoublyLinkedList {
         return result;
     }
 
+    public void graph(int v) {
+        V = v;
+        adj = new LinkedList[v];
+        for (int i=0; i<v; ++i)
+            adj[i] = new LinkedList();
+    }
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
