@@ -2685,6 +2685,24 @@ public class DoublyLinkedList {
         return false;
     }
 
+    public boolean dfs(int start, int end) {
+        if (start == end){
+            return true;
+        }
+ 
+        visited[start] = 1;
+        for(int i = 0; i < adj[start].size(); i++){
+            int x = adj[start].get(i);
+            if (visited[x] == 0){
+                if (dfs(x, end)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
