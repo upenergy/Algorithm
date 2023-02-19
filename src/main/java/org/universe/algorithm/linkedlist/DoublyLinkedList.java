@@ -2757,7 +2757,12 @@ public class DoublyLinkedList {
         // We reach here if given key x doesn't exist in tree
         return null;
     }
-
+ 
+    public boolean isInside(int x, int y, int N) {
+        if (x >= 1 && x <= N && y >= 1 && y <= N)
+            return true;
+        return false;
+    }
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
