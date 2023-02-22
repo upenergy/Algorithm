@@ -62,3 +62,5 @@ https://www.geeksforgeeks.org/rearrange-a-given-linked-list-in-place/
 https://www.geeksforgeeks.org/rearrange-given-list-consists-alternating-minimum-maximum-elements/
 https://www.geeksforgeeks.org/flattening-a-linked-list/
 https://www.geeksforgeeks.org/make-middle-node-head-linked-list/
+https://www.geeksforgeeks.org/flatten-a-linked-list-with-next-and-child-pointers/
+https://www.geeksforgeeks.org/level-maximum-number-nodes/
