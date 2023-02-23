@@ -2858,6 +2858,17 @@ public class DoublyLinkedList {
         return false;
     }
 
+    public void printNodes(Node root, int start, int end, List<List<Integer>> ans, int level) {
+        if (root == null) {
+            return;
+        }
+        printNodes(root.left, start, end, ans, level + 1);
+        if (level >= start && level <= end) {
+            ans.get(level - start).add(root.data);
+        }
+        printNodes(root.right, start, end, ans, level + 1);
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
