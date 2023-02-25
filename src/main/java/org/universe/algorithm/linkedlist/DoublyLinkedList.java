@@ -2869,6 +2869,62 @@ public class DoublyLinkedList {
         printNodes(root.right, start, end, ans, level + 1);
     }
 
+    public Node nextRight(Node first, int k){
+        // Base Case
+        if (first == null)
+            return null;
+  
+        // Create an empty queue for level order traversal
+        // A queue to store node addresses
+        Queue<Node> qn = new LinkedList<Node>();
+         
+        // Another queue to store node levels
+        Queue<Integer> ql = new LinkedList<Integer>();  
+  
+        int level = 0;  // Initialize level as 0
+  
+        // Enqueue Root and its level
+        qn.add(first);
+        ql.add(level);
+  
+        // A standard BFS loop
+        while (qn.size() != 0)
+        {
+            // dequeue an node from qn and its level from ql
+            Node node = qn.peek();
+            level = ql.peek();
+            qn.remove();
+            ql.remove();
+  
+            // If the dequeued node has the given key k
+            if (node.data == k)
+            {
+                // If there are no more items in queue or given node is
+                // the rightmost node of its level, then return NULL
+                if (ql.size() == 0 || ql.peek() != level)
+                    return null;
+  
+                // Otherwise return next node from queue of nodes
+                return qn.peek();
+            }
+  
+            // Standard BFS steps: enqueue children of this node
+            if (node.left != null)
+            {
+                qn.add(node.left);
+                ql.add(level + 1);
+            }
+            if (node.right != null)
+            {
+                qn.add(node.right);
+                ql.add(level + 1);
+            }
+        }
+  
+        // We reach here if given key x doesn't exist in tree
+        return null;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
