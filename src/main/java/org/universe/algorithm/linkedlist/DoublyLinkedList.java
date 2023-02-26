@@ -2925,6 +2925,13 @@ public class DoublyLinkedList {
         return null;
     }
 
+    static boolean isSafe(int mat[][], int i, int j,
+                       boolean vis[][]){
+        return (i >= 0) && (i < R) &&
+            (j >= 0) && (j < C) &&
+            (mat[i][j]==1 && !vis[i][j]);
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
