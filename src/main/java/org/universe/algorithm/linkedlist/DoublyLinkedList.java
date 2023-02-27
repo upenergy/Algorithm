@@ -2932,6 +2932,44 @@ public class DoublyLinkedList {
             (mat[i][j]==1 && !vis[i][j]);
     }
 
+    public void BFS(int mat[][], boolean vis[][],
+                int si, int sj) {
+ 
+        // These arrays are used to get row and
+        // column numbers of 8 neighbours of
+        // a given cell
+        int row[] = { -1, -1, -1, 0, 0, 1, 1, 1 };
+        int col[] = { -1, 0, 1, -1, 1, -1, 0, 1 };
+    
+        // Simple BFS first step, we enqueue
+        // source and mark it as visited
+        Queue<pair> q = new LinkedList<pair>();
+        q.add(new pair(si, sj));
+        vis[si][sj] = true;
+    
+        // Next step of BFS. We take out
+        // items one by one from queue and
+        // enqueue their unvisited adjacent
+        while (!q.isEmpty())
+        {
+    
+            int i = q.peek().first;
+            int j = q.peek().second;
+            q.remove();
+    
+            // Go through all 8 adjacent
+            for (int k = 0; k < 8; k++)
+            {
+                if (isSafe(mat, i + row[k],
+                        j + col[k], vis))
+                {
+                    vis[i + row[k]][j + col[k]] = true;
+                    q.add(new pair(i + row[k], j + col[k]));
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
