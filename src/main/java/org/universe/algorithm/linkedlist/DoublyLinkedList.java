@@ -2970,6 +2970,29 @@ public class DoublyLinkedList {
         }
     }
 
+    public int countIslands(int mat[][]) {
+        // Mark all cells as not visited
+        boolean [][]vis = new boolean[R][C];
+    
+        // Call BFS for every unvisited vertex
+        // Whenever we see an univisted vertex,
+        // we increment res (number of islands)
+        // also.
+        int res = 0;
+        for (int i = 0; i < R; i++)
+        {
+            for (int j = 0; j < C; j++)
+            {
+                if (mat[i][j]==1 && !vis[i][j])
+                {
+                    BFS(mat, vis, i, j);
+                    res++;
+                }
+            }
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
