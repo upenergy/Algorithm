@@ -2474,6 +2474,564 @@ public class DoublyLinkedList {
         return false;
     }
     
+    public void addToTheLast(Node node){
+        if (head == null) {
+            head = node;
+        }
+        else {
+            Node temp = head;
+            while (temp.next != null)
+                temp = temp.next;
+            temp.next = node;
+        }
+    }
+
+    public void mergeLists(Node a, Node b) {
+        // run till either one of a or b runs out
+        while (a != null && b != null) {
+            // for each element of LL1,
+            // compare it with first element of LL2.
+            if (a.data > b.data) {
+                // swap the two elements involved
+                // if LL1 has a greater element
+                int temp = a.data;
+                a.data = b.data;
+                b.data = temp;
+ 
+                Node temp2 = b;
+ 
+                // To keep LL2 sorted, place first
+                // element of LL2 at its correct place
+                if (b.next != null
+                    && b.data > b.next.data) {
+                    b = b.next;
+                    Node ptr = b;
+                    Node prev = null;
+ 
+                    // find mismatch by traversing the
+                    // second linked list once
+                    while (ptr != null
+                           && ptr.data < temp2.data) {
+                        prev = ptr;
+                        ptr = ptr.next;
+                    }
+ 
+                    // correct the pointers
+                    prev.next = temp2;
+                    temp2.next = ptr;
+                }
+            }
+ 
+            // move LL1 pointer to next element
+            a = a.next;
+        }
+    }
+
+    public void getUnion(Node head1, Node head2) {
+        Node t1 = head1, t2 = head2;
+ 
+        // insert all elements of list1 in the result
+        while (t1 != null) {
+            push(t1.data);
+            t1 = t1.next;
+        }
+ 
+        // insert those elements of list2
+        // that are not present
+        while (t2 != null) {
+            if (!isPresent(head, t2.data))
+                push(t2.data);
+            t2 = t2.next;
+        }
+    }
+
+    public int maxNodeLevel(Node root) {
+        if (root == null)
+            return -1;
+    
+        Queue<Node> q = new LinkedList<Node> ();
+        q.add(root);
+    
+        // Current level
+        int level = 0;
+    
+        // Maximum Nodes at same level
+        int max = Integer.MIN_VALUE;
+    
+        // Level having maximum Nodes
+        int level_no = 0;
+    
+        while (true)
+        {
+            // Count Nodes in a level
+            int NodeCount = q.size();
+    
+            if (NodeCount == 0)
+                break;
+    
+            // If it is maximum till now
+            // Update level_no to current level
+            if (NodeCount > max)
+            {
+                max = NodeCount;
+                level_no = level;
+            }
+    
+            // Pop complete current level
+            while (NodeCount > 0)
+            {
+                Node Node = q.peek();
+                q.remove();
+                if (Node.left != null)
+                    q.add(Node.left);
+                if (Node.right != null)
+                    q.add(Node.right);
+                NodeCount--;
+            }
+    
+            // Increment for next level
+            level++;
+        }
+    
+        return levelNo;
+    }
+
+    public void dfs(Node root, Map<Integer, Integer> unmap, int depth){
+        if(root == null) return;
+         
+        // Increment the count of nodes at depth in map
+        if(unmap.containsKey(depth)){
+            unmap.put(depth, unmap.get(depth)+1);
+        }else{
+            unmap.put(depth, 1);
+        }
+        // unmap.put(depth, unmap.get(depth) + 1);
+        dfs(root.left, unmap, depth+1);
+        dfs(root.right, unmap, depth+1);
+    }
+
+    public int maxNodeLevel(Node root) {
+        Map<Integer, Integer> unmap = new HashMap<Integer, Integer>();
+        dfs(root, unmap, 0);
+        int maxx = Integer.MIN_VALUE;
+        int result = 0;
+         
+        for(Integer i : unmap.keySet()){
+            if(unmap.get(i) > maxx){
+                result = i;
+                maxx = unmap.get(i);
+            }
+            else if(unmap.get(i) == maxx){
+                result = Math.min(result, i);
+            }
+            // System.out.println(i + " -> " + unmap.get(i));
+        }
+        return result;
+    }
+
+    public void graph(int v) {
+        V = v;
+        adj = new LinkedList[v];
+        for (int i=0; i<v; ++i)
+            adj[i] = new LinkedList();
+    }
+
+    public Boolean isReachable(int s, int d) {
+        LinkedList<Integer>temp;
+ 
+        // Mark all the vertices as not visited(By default set
+        // as false)
+        boolean visited[] = new boolean[V];
+ 
+        // Create a queue for BFS
+        LinkedList<Integer> queue = new LinkedList<Integer>();
+ 
+        // Mark the current node as visited and enqueue it
+        visited[s]=true;
+        queue.add(s);
+ 
+        // 'i' will be used to get all adjacent vertices of a vertex
+        Iterator<Integer> i;
+        while (queue.size()!=0)
+        {
+            // Dequeue a vertex from queue and print it
+            s = queue.poll();
+ 
+            int n;
+            i = adj[s].listIterator();
+ 
+            // Get all adjacent vertices of the dequeued vertex s
+            // If a adjacent has not been visited, then mark it
+            // visited and enqueue it
+            while (i.hasNext())
+            {
+                n = i.next();
+ 
+                // If this adjacent node is the destination node,
+                // then return true
+                if (n==d)
+                    return true;
+ 
+                // Else, continue to do BFS
+                if (!visited[n])
+                {
+                    visited[n] = true;
+                    queue.add(n);
+                }
+            }
+        }
+ 
+        // If BFS is complete without visited d
+        return false;
+    }
+
+    public boolean dfs(int start, int end) {
+        if (start == end){
+            return true;
+        }
+ 
+        visited[start] = 1;
+        for(int i = 0; i < adj[start].size(); i++){
+            int x = adj[start].get(i);
+            if (visited[x] == 0){
+                if (dfs(x, end)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public Node nextRight(Node first, int k) {
+        // Base Case
+        if (first == null)
+            return null;
+  
+        // Create an empty queue for level order traversal
+        // A queue to store node addresses
+        Queue<Node> qn = new LinkedList<Node>();
+         
+        // Another queue to store node levels
+        Queue<Integer> ql = new LinkedList<Integer>();  
+  
+        int level = 0;  // Initialize level as 0
+  
+        // Enqueue Root and its level
+        qn.add(first);
+        ql.add(level);
+  
+        // A standard BFS loop
+        while (qn.size() != 0)
+        {
+            // dequeue an node from qn and its level from ql
+            Node node = qn.peek();
+            level = ql.peek();
+            qn.remove();
+            ql.remove();
+  
+            // If the dequeued node has the given key k
+            if (node.data == k)
+            {
+                // If there are no more items in queue or given node is
+                // the rightmost node of its level, then return NULL
+                if (ql.size() == 0 || ql.peek() != level)
+                    return null;
+  
+                // Otherwise return next node from queue of nodes
+                return qn.peek();
+            }
+  
+            // Standard BFS steps: enqueue children of this node
+            if (node.left != null)
+            {
+                qn.add(node.left);
+                ql.add(level + 1);
+            }
+            if (node.right != null)
+            {
+                qn.add(node.right);
+                ql.add(level + 1);
+            }
+        }
+  
+        // We reach here if given key x doesn't exist in tree
+        return null;
+    }
+ 
+    public boolean isInside(int x, int y, int N) {
+        if (x >= 1 && x <= N && y >= 1 && y <= N)
+            return true;
+        return false;
+    }
+
+    public int minStepToReachTarget(int knightPos[],
+                                    int targetPos[], int N) {
+        // x and y direction, where a knight can move
+        int dx[] = { -2, -1, 1, 2, -2, -1, 1, 2 };
+        int dy[] = { -1, -2, -2, -1, 1, 2, 2, 1 };
+ 
+        // queue for storing states of knight in board
+        Queue<cell> q = new LinkedList<>();
+ 
+        // push starting position of knight with 0 distance
+        q.add(new cell(knightPos[0], knightPos[1], 0));
+ 
+        cell t;
+        int x, y;
+        boolean visit[][] = new boolean
+            [N + 1][N + 1]; // default initialized to false
+ 
+        // visit starting state
+        visit[knightPos[0]][knightPos[1]] = true;
+ 
+        // loop until we have one element in queue
+        while (!q.isEmpty()) {
+            t = q.poll();
+ 
+            // if current cell is equal to target cell,
+            // return its distance
+            if (t.x == targetPos[0] && t.y == targetPos[1])
+                return t.dis;
+ 
+            // loop for all reachable states
+            for (int i = 0; i < 8; i++) {
+                x = t.x + dx[i];
+                y = t.y + dy[i];
+ 
+                // If reachable state is not yet visited and
+                // inside board, push that state into queue
+                if (isInside(x, y, N) && !visit[x][y]) {
+                    visit[x][y] = true;
+                    q.add(new cell(x, y, t.dis + 1));
+                }
+            }
+        }
+        return Integer.MAX_VALUE;
+    }
+    
+    public Boolean isReachable(int s, int d){
+        LinkedList<Integer>temp;
+ 
+        // Mark all the vertices as not visited(By default set
+        // as false)
+        boolean visited[] = new boolean[V];
+ 
+        // Create a queue for BFS
+        LinkedList<Integer> queue = new LinkedList<Integer>();
+ 
+        // Mark the current node as visited and enqueue it
+        visited[s]=true;
+        queue.add(s);
+ 
+        // 'i' will be used to get all adjacent vertices of a vertex
+        Iterator<Integer> i;
+        while (queue.size()!=0)
+        {
+            // Dequeue a vertex from queue and print it
+            s = queue.poll();
+ 
+            int n;
+            i = adj[s].listIterator();
+ 
+            // Get all adjacent vertices of the dequeued vertex s
+            // If a adjacent has not been visited, then mark it
+            // visited and enqueue it
+            while (i.hasNext())
+            {
+                n = i.next();
+ 
+                // If this adjacent node is the destination node,
+                // then return true
+                if (n==d)
+                    return true;
+ 
+                // Else, continue to do BFS
+                if (!visited[n])
+                {
+                    visited[n] = true;
+                    queue.add(n);
+                }
+            }
+        }
+ 
+        // If BFS is complete without visited d
+        return false;
+    }
+
+    public void printNodes(Node root, int start, int end, List<List<Integer>> ans, int level) {
+        if (root == null) {
+            return;
+        }
+        printNodes(root.left, start, end, ans, level + 1);
+        if (level >= start && level <= end) {
+            ans.get(level - start).add(root.data);
+        }
+        printNodes(root.right, start, end, ans, level + 1);
+    }
+
+    public Node nextRight(Node first, int k){
+        // Base Case
+        if (first == null)
+            return null;
+  
+        // Create an empty queue for level order traversal
+        // A queue to store node addresses
+        Queue<Node> qn = new LinkedList<Node>();
+         
+        // Another queue to store node levels
+        Queue<Integer> ql = new LinkedList<Integer>();  
+  
+        int level = 0;  // Initialize level as 0
+  
+        // Enqueue Root and its level
+        qn.add(first);
+        ql.add(level);
+  
+        // A standard BFS loop
+        while (qn.size() != 0)
+        {
+            // dequeue an node from qn and its level from ql
+            Node node = qn.peek();
+            level = ql.peek();
+            qn.remove();
+            ql.remove();
+  
+            // If the dequeued node has the given key k
+            if (node.data == k)
+            {
+                // If there are no more items in queue or given node is
+                // the rightmost node of its level, then return NULL
+                if (ql.size() == 0 || ql.peek() != level)
+                    return null;
+  
+                // Otherwise return next node from queue of nodes
+                return qn.peek();
+            }
+  
+            // Standard BFS steps: enqueue children of this node
+            if (node.left != null)
+            {
+                qn.add(node.left);
+                ql.add(level + 1);
+            }
+            if (node.right != null)
+            {
+                qn.add(node.right);
+                ql.add(level + 1);
+            }
+        }
+  
+        // We reach here if given key x doesn't exist in tree
+        return null;
+    }
+
+    static boolean isSafe(int mat[][], int i, int j,
+                       boolean vis[][]){
+        return (i >= 0) && (i < R) &&
+            (j >= 0) && (j < C) &&
+            (mat[i][j]==1 && !vis[i][j]);
+    }
+
+    public void BFS(int mat[][], boolean vis[][],
+                int si, int sj) {
+ 
+        // These arrays are used to get row and
+        // column numbers of 8 neighbours of
+        // a given cell
+        int row[] = { -1, -1, -1, 0, 0, 1, 1, 1 };
+        int col[] = { -1, 0, 1, -1, 1, -1, 0, 1 };
+    
+        // Simple BFS first step, we enqueue
+        // source and mark it as visited
+        Queue<pair> q = new LinkedList<pair>();
+        q.add(new pair(si, sj));
+        vis[si][sj] = true;
+    
+        // Next step of BFS. We take out
+        // items one by one from queue and
+        // enqueue their unvisited adjacent
+        while (!q.isEmpty())
+        {
+    
+            int i = q.peek().first;
+            int j = q.peek().second;
+            q.remove();
+    
+            // Go through all 8 adjacent
+            for (int k = 0; k < 8; k++)
+            {
+                if (isSafe(mat, i + row[k],
+                        j + col[k], vis))
+                {
+                    vis[i + row[k]][j + col[k]] = true;
+                    q.add(new pair(i + row[k], j + col[k]));
+                }
+            }
+        }
+    }
+
+    public int countIslands(int mat[][]) {
+        // Mark all cells as not visited
+        boolean [][]vis = new boolean[R][C];
+    
+        // Call BFS for every unvisited vertex
+        // Whenever we see an univisted vertex,
+        // we increment res (number of islands)
+        // also.
+        int res = 0;
+        for (int i = 0; i < R; i++)
+        {
+            for (int j = 0; j < C; j++)
+            {
+                if (mat[i][j]==1 && !vis[i][j])
+                {
+                    BFS(mat, vis, i, j);
+                    res++;
+                }
+            }
+        }
+        return res;
+    }
+
+    public void levelOrder(Node root) {
+        if (root == null)
+        return;
+    
+        Queue<Node> q = new LinkedList<>();
+    
+        // Pushing root node into the queue.
+        q.add(root);
+    
+        // Pushing delimiter into the queue.
+        q.add(null);
+    
+        // Executing loop till queue becomes
+        // empty
+        while (!q.isEmpty()) {
+    
+        Node curr = q.poll();
+    
+        // condition to check the
+        // occurrence of next level
+        if (curr == null) {
+            if (!q.isEmpty()) {
+            q.add(null);
+            System.out.println();
+            }
+        } else {
+            // Pushing left child current node
+            if (curr.left != null)
+            q.add(curr.left);
+    
+            // Pushing right child current node
+            if (curr.right != null)
+            q.add(curr.right);
+    
+            System.out.print(curr.data + " ");
+        }
+        }
+    }
+        
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
