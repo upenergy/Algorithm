@@ -3105,6 +3105,49 @@ public class DoublyLinkedList {
         }
     }
 
+    public static String firstNonRepeatingChar(String input_stream) {
+        // Step 1: Create a count array of size 26 to store
+        // the frequency of each character.
+        int[] count = new int[26];
+ 
+        // Step 2: Create a queue to store the characters in
+        // the input stream.
+        Queue<Character> q = new LinkedList<>();
+ 
+        // Step 3: Initialize an empty string as the answer.
+        String answer = "";
+ 
+        for (char c : input_stream.toCharArray()) {
+            // Step 4: For each character in the input
+            // stream, add it to the queue and increment its
+            // frequency in the count array.
+            count++;
+            q.add(c);
+ 
+            while (!q.isEmpty()
+                   && count[q.peek() - 'a'] > 1) {
+                // Step 5: While the queue is not empty,
+                // check if the frequency of the front
+                // character in the queue is 1.
+                q.remove();
+            }
+ 
+            if (q.isEmpty()) {
+                // Step 7: If there are no characters left
+                // in the queue, append '#' to the answer.
+                answer += '#';
+            }
+            else {
+                // Step 6: If the frequency is 1, append the
+                // character to the answer.
+                answer += q.peek();
+            }
+        }
+ 
+        // Step 8: Return the answer.
+        return answer;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
