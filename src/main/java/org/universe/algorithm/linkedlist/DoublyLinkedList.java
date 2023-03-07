@@ -3163,6 +3163,13 @@ public class DoublyLinkedList {
         }
     }
 
+    public boolean issafe(int i, int j) {
+        if (i >= 0 && i < R && j >= 0 && j < C)
+            return true;
+ 
+        return false;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
