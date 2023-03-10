@@ -3282,6 +3282,16 @@ public class DoublyLinkedList {
         return no - 2;
     }
 
+    public class Ele {
+        int x = 0;
+        int y = 0;
+        Ele(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
