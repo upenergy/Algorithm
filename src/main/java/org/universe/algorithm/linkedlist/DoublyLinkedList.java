@@ -3292,6 +3292,10 @@ public class DoublyLinkedList {
         }
     }
 
+    public boolean isDelim(Ele temp) {
+        return (temp.x == -1 && temp.y == -1);
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
