@@ -3296,6 +3296,14 @@ public class DoublyLinkedList {
         return (temp.x == -1 && temp.y == -1);
     }
 
+    public boolean checkAll(int arr[][]) {
+        for (int i = 0; i < R; i++)
+            for (int j = 0; j < C; j++)
+                if (arr[i][j] == 1)
+                    return true;
+        return false;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
