@@ -3524,6 +3524,12 @@ public class DoublyLinkedList {
         return ans != Integer.MIN_VALUE ? ans : -1;
     }
 
+    public boolean isValid(int[][] screen, int m, int n, int x, int y, int prevC, int newC) {
+        if(x < 0 || x >= m || y < 0 || y >= n || screen[x][y] != prevC
+           || screen[x][y]== newC)
+            return false;
+        return true;
+    }
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
