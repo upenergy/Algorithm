@@ -68,3 +68,11 @@ https://www.geeksforgeeks.org/minimum-steps-reach-target-knight/
 https://www.geeksforgeeks.org/sliding-window-maximum-maximum-of-all-subarrays-of-size-k/#
 https://www.geeksforgeeks.org/flood-fill-algorithm/
 https://www.geeksforgeeks.org/print-all-nodes-between-two-given-levels-in-binary-tree/
+https://www.geeksforgeeks.org/sliding-window-maximum-maximum-of-all-subarrays-of-size-k/
+https://www.geeksforgeeks.org/minimum-time-required-so-that-all-oranges-become-rotten/
+
+
+https://www.geeksforgeeks.org/interesting-method-generate-binary-numbers-1-n/
+https://www.geeksforgeeks.org/maximum-cost-path-from-source-node-to-destination-node-via-at-most-k-intermediate-nodes/
+https://www.geeksforgeeks.org/shortest-distance-two-cells-matrix-grid/
+https://www.geeksforgeeks.org/minimum-cost-path-in-a-directed-graph-via-given-set-of-intermediate-nodes/
