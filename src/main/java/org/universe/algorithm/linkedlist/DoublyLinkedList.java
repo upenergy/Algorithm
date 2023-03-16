@@ -3529,6 +3529,22 @@ public class DoublyLinkedList {
            || screen[x][y]== newC)
             return false;
         return true;
+    } 
+
+    public void generatePrintBinary(int n) {
+        for (int i = 1; i <= n; i++) {
+            String str = "";
+            int temp = i;
+            while (temp != 0) {
+                if ((temp & 1) == 1) {
+                    str = "1" + str;
+                } else {
+                    str = "0" + str;
+                }
+                temp = temp >> 1;
+            }
+            System.out.println(str);
+        }
     }
 
     public static void main(String[] args) {
