@@ -3574,6 +3574,14 @@ public class DoublyLinkedList {
             q.add(s2 + "1");
         }
     }
+
+    public QItem(int row, int col, int dist) {
+        this.row = row;
+        this.col = col;
+        this.dist = dist;
+    }
+
+    
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
