@@ -3581,7 +3581,24 @@ public class DoublyLinkedList {
         this.dist = dist;
     }
 
-    
+    public static int minDistance(char[][] grid) {
+        QItem source = new QItem(0, 0, 0);
+        
+        // To keep track of visited QItems. Marking
+        // blocked cells as visited.
+        firstLoop:
+        for (int i = 0; i < grid.length; i++) {
+        for (int j = 0; j < grid[i].length; j++)
+        {
+            
+            // Finding source
+            if (grid[i][j] == 's') {
+            source.row = i;
+            source.col = j;
+            break firstLoop;
+            }
+        }
+    }
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
