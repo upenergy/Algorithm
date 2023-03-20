@@ -3599,6 +3599,12 @@ public class DoublyLinkedList {
             }
         }
     }
+
+    public class qentry {
+        int v; // Vertex number
+        int dist; // Distance of this vertex from source
+    }
+    
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
