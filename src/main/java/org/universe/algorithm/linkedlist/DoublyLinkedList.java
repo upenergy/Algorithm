@@ -3652,6 +3652,22 @@ public class DoublyLinkedList {
         return qe.dist;
     }
 
+    public int minThrow(int n, int arr[]) {
+        // code here
+        for (int i = 0; i < 31; i++) {
+            // initialising every index of t with -1
+            t[i] = -1;
+        }
+        // create hashmap to store snakes and ladders start
+        // and end for better efficiency
+        HashMap<Integer, Integer> h = new HashMap<>();
+        for (int i = 0; i < 2 * n; i = i + 2) {
+            // store start as key and end as value
+            h.put(arr[i], arr[i + 1]);
+        }
+        // final ans
+        return sol(1, h);
+    }
 
     public class qentry {
         int v; // Vertex number
