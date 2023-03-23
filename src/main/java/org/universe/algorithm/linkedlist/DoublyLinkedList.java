@@ -3669,6 +3669,47 @@ public class DoublyLinkedList {
         return sol(1, h);
     }
 
+
+    public int sol(int i, HashMap<Integer, Integer> h) {
+        // base condintion
+        if (i >= 30)
+            return 0;
+ 
+        // checking if block is already visited or
+        // not(memoization).
+        else if (t[i] != -1)
+            return t[i];
+ 
+        // initialising min as max int value
+        int min = Integer.MAX_VALUE;
+ 
+        // for loop for every dice value from 1 to 6
+        for (int j = 1; j <= 6; j++) {
+            // incrementing value of i with dice value i.e j
+            // taking new variable k
+            //->taking new variable so that we dont change i
+            // as we will need it again in another iteration
+            int k = i + j;
+            if (h.containsKey(k)) {
+                // checking if this is a snake of ladder
+                // if a snake then we continue as we dont
+                // need a snake
+                if (h.get(k) < k)
+                    continue;
+                // updating if its a ladder to ladder end
+                // value
+                k = h.get(k);
+            }
+            // updating min in every iteration for getting
+            // minimum throws from this particular block
+            min = Math.min(min, sol(k, h) + 1);
+        }
+        // updating value of t[i] to min
+        // memoization
+        t[i] = min;
+        return t[i];
+    }
+
     public class qentry {
         int v; // Vertex number
         int dist; // Distance of this vertex from source
