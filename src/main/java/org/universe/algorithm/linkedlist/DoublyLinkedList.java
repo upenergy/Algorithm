@@ -3710,9 +3710,55 @@ public class DoublyLinkedList {
         return t[i];
     }
 
+
+
     public class qentry {
         int v; // Vertex number
         int dist; // Distance of this vertex from source
+    }
+
+
+    public int minimumCostSimplePath(int u, int destination,
+                                 boolean visited[],
+                                 int graph[][]) {
+     
+        if (u == destination)
+            return 0;
+            
+        // Marking the current node as visited
+        visited[u] = true;
+    
+        int ans = INF;
+    
+        // Traverse through all
+        // the adjacent nodes
+        for(int i = 0; i < V; i++)
+        {
+            if (graph[u][i] != INF && !visited[i])
+            {
+                
+                // Cost of the further path
+                int curr = minimumCostSimplePath(i,
+                            destination, visited, graph);
+    
+                // Check if we have reached the
+                // destination
+                if (curr < INF)
+                {
+                    
+                    // Taking the minimum cost path
+                    ans = Math.min(ans, graph[u][i] + curr);
+                }
+            }
+        }
+    
+        // Unmarking the current node
+        // to make it available for other
+        // simple paths
+        visited[u] = false;
+    
+        // Returning the minimum cost
+        return ans;
     }
     
     public static void main(String[] args) {
