@@ -3761,6 +3761,19 @@ public class DoublyLinkedList {
         return ans;
     }
     
+
+    public class petrolPump {
+        int petrol;
+        int distance;
+         
+        // constructor
+        public petrolPump(int petrol, int distance)
+        {
+            this.petrol = petrol;
+            this.distance = distance;
+        }
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
