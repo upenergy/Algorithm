@@ -3774,6 +3774,40 @@ public class DoublyLinkedList {
         }
     }
 
+
+    public int printTour(petrolPump arr[], int n) { 
+        int start = 0;
+        int end = 1;
+        int curr_petrol = arr[start].petrol - arr[start].distance;
+         
+        // If current amount of petrol in truck becomes less than 0, then
+        // remove the starting petrol pump from tour
+        while(end != start || curr_petrol < 0)
+        {
+             
+            // If current amount of petrol in truck becomes less than 0, then
+            // remove the starting petrol pump from tour
+            while(curr_petrol < 0 && start != end)
+            {
+                // Remove starting petrol pump. Change start
+                curr_petrol -= arr[start].petrol - arr[start].distance;
+                start = (start + 1) % n;
+                 
+                // If 0 is being considered as start again, then there is no
+                // possible solution
+                if(start == 0)
+                    return -1;
+            }
+            // Add a petrol pump to current tour
+            curr_petrol += arr[end].petrol - arr[end].distance;
+             
+            end = (end + 1)%n;
+        }
+         
+        // Return starting point
+        return start;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
