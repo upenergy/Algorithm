@@ -76,3 +76,6 @@ https://www.geeksforgeeks.org/interesting-method-generate-binary-numbers-1-n/
 https://www.geeksforgeeks.org/maximum-cost-path-from-source-node-to-destination-node-via-at-most-k-intermediate-nodes/
 https://www.geeksforgeeks.org/shortest-distance-two-cells-matrix-grid/
 https://www.geeksforgeeks.org/minimum-cost-path-in-a-directed-graph-via-given-set-of-intermediate-nodes/
+https://www.geeksforgeeks.org/applications-advantages-and-disadvantages-of-stack/
+https://www.geeksforgeeks.org/introduction-to-monotonic-stack-data-structure-and-algorithm-tutorials/
+
