@@ -3819,6 +3819,17 @@ public class DoublyLinkedList {
         }
     }
 
+    public int peek() {
+        if (top < 0) {
+            System.out.println("Stack Underflow");
+            return 0;
+        }
+        else {
+            int x = a[top];
+            return x;
+        }
+    }
+    
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
