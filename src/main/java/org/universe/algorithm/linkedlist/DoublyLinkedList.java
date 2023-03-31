@@ -3829,7 +3829,14 @@ public class DoublyLinkedList {
             return x;
         }
     }
-    
+
+    public class StackNode {
+        int data;
+        StackNode next;
+  
+        StackNode(int data) { this.data = data; }
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
