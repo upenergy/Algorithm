@@ -3830,11 +3830,22 @@ public class DoublyLinkedList {
         }
     }
 
+
     public class StackNode {
         int data;
         StackNode next;
   
         StackNode(int data) { this.data = data; }
+    }
+
+    public int peek() {
+        if (root == null) {
+            System.out.println("Stack is empty");
+            return Integer.MIN_VALUE;
+        }
+        else {
+            return root.data;
+        }
     }
 
     public static void main(String[] args) {
