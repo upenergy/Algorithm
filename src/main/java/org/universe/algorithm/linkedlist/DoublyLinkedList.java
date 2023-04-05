@@ -3947,6 +3947,13 @@ public class DoublyLinkedList {
          
         return result;
     }
+
+    public Queue(int capacity) {
+        this.capacity = capacity;
+        front = this.size = 0;
+        rear = capacity - 1;
+        array = new int[this.capacity];
+    }
     
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
