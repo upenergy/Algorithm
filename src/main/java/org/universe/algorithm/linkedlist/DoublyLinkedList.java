@@ -3955,6 +3955,10 @@ public class DoublyLinkedList {
         array = new int[this.capacity];
     }
     
+    boolean isFull(Queue queue) {
+        return (queue.size == queue.capacity);
+    }
+    
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
