@@ -3955,8 +3955,19 @@ public class DoublyLinkedList {
         array = new int[this.capacity];
     }
     
-    boolean isFull(Queue queue) {
+    public boolean isFull(Queue queue) {
         return (queue.size == queue.capacity);
+    }
+
+    public void enqueue(int item) {
+        if (isFull(this))
+            return;
+        this.rear = (this.rear + 1)
+                    % this.capacity;
+        this.array[this.rear] = item;
+        this.size = this.size + 1;
+        System.out.println(item
+                           + " enqueued to queue");
     }
     
     public static void main(String[] args) {
