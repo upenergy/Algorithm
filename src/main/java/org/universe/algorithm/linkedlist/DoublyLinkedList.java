@@ -3969,6 +3969,17 @@ public class DoublyLinkedList {
         System.out.println(item
                            + " enqueued to queue");
     }
+
+    public int dequeue() {
+        if (isEmpty(this))
+            return Integer.MIN_VALUE;
+ 
+        int item = this.array[this.front];
+        this.front = (this.front + 1)
+                     % this.capacity;
+        this.size = this.size - 1;
+        return item;
+    }
     
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
