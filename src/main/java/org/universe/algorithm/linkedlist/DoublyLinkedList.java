@@ -3980,6 +3980,13 @@ public class DoublyLinkedList {
         this.size = this.size - 1;
         return item;
     }
+
+    public int front() {
+        if (isEmpty(this))
+            return Integer.MIN_VALUE;
+ 
+        return this.array[this.front];
+    }
     
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
