@@ -3988,6 +3988,14 @@ public class DoublyLinkedList {
         return this.array[this.front];
     }
     
+
+    public int rear() {
+        if (isEmpty(this))
+            return Integer.MIN_VALUE;
+ 
+        return this.array[this.rear];
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
