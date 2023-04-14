@@ -3424,6 +3424,34 @@ public class DoublyLinkedList {
         return (checkAll(arr)) ? -1 : ans;
     }
 
+
+    public ArrayList<Integer> slidingMaximum(int a[], int b, int N) {
+        // s2 for push
+        // s1 for pop
+        ArrayList<Integer> ans = new ArrayList<>();
+        Stack<node> s1 = new Stack<>(), s2 = new Stack<>();
+ 
+        // shifting all value except the last one if first
+        // window
+        for (int i = 0; i < b - 1; i++)
+            insert(s2, a[i]);
+ 
+        for (int i = 0; i <= N - b; i++) {
+            // removing the last element of previous
+            // window as window has shift by one
+            if (i - 1 >= 0)
+                delete(s1, s2);
+ 
+            // adding the new element to
+            // the window as the window is shift by one
+            insert(s2, a[i + b - 1]);
+ 
+            ans.add(get_max(s1, s2));
+        }
+        return ans;
+    }
+
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
