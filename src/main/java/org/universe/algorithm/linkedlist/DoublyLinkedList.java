@@ -3452,6 +3452,79 @@ public class DoublyLinkedList {
     }
 
 
+    public int findShortestPath(int n, int[][] edges,
+                                       int src, int dst,
+                                       int K) {
+        // Initialize the adjacency list
+        List<List<int[]> > adjlist = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            adjlist.add(new ArrayList<int[]>());
+        }
+ 
+        // Initialize a queue to perform BFS
+        Queue<int[]> q = new LinkedList<>();
+ 
+        Map<Integer, Integer> mp = new HashMap<>();
+ 
+        // Store the maximum distance of
+        // every node from source vertex
+        int ans = Integer.MIN_VALUE;
+ 
+        // Initialize adjacency list
+        for (int[] edge : edges) {
+            adjlist.get(edge[0]).add(
+                new int[] { edge[1], edge[2] });
+        }
+ 
+        // Push the first element into queue
+        q.add(new int[] { src, 0 });
+ 
+        int level = 0;
+ 
+        // Iterate until the queue becomes empty
+        // and the number of nodes between src
+        // and dst vertex is at most to K
+        while (!q.isEmpty() && level < K + 2) {
+ 
+            // Current size of the queue
+            int sz = q.size();
+ 
+            for (int i = 0; i < sz; i++) {
+ 
+                // Extract the front
+                // element of the queue
+                int[] pr = q.poll();
+ 
+                // If the dst vertex is reached
+                if (pr[0] == dst)
+                    ans = Math.max(ans, pr[1]);
+ 
+                // Traverse the adjacent nodes
+                for (int[] pr2 : adjlist.get(pr[0])) {
+ 
+                    // If the distance is greater
+                    // than the current distance
+                    if (!mp.containsKey(pr2[0])
+                        || mp.get(pr2[0])
+                               > pr[1] + pr2[1]) {
+ 
+                        // Push it into the queue
+                        q.add(new int[] { pr2[0],
+                                          pr[1] + pr2[1] });
+                        mp.put(pr2[0], pr[1] + pr2[1]);
+                    }
+                }
+            }
+ 
+            // Increment the level by 1
+            level++;
+        }
+ 
+        // Finally, return the maximum distance
+        return ans != Integer.MIN_VALUE ? ans : -1;
+    }
+
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
  
