@@ -4117,6 +4117,25 @@ public class DoublyLinkedList {
             j++;
         }
     }
+
+    public KStack(int k1, int n1) {
+        // Initialize n and k, and allocate memory for all arrays
+        k = k1;
+        n = n1;
+        arr = new int[n];
+        top = new int[k];
+        next = new int[n];
+
+        // Initialize all stacks as empty
+        for (int i = 0; i < k; i++)
+            top[i] = -1;
+
+        // Initialize all spaces as free
+        free = 0;
+        for (int i = 0; i < n - 1; i++)
+            next[i] = i + 1;
+        next[n - 1] = -1; // -1 is used to indicate end of free list
+    }
     
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
