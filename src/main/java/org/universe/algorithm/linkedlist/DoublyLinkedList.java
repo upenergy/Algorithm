@@ -4136,6 +4136,18 @@ public class DoublyLinkedList {
             next[i] = i + 1;
         next[n - 1] = -1; // -1 is used to indicate end of free list
     }
+
+    public void getMin() { 
+        // Get the minimum number in the entire stack
+        if (s.isEmpty())
+            System.out.println("Stack is empty");
+ 
+        // variable minEle stores the minimum element
+        // in the stack.
+        else
+            System.out.println("Minimum Element in the "
+                               + " stack is: " + minEle);
+    }
     
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
