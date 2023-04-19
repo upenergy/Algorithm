@@ -4148,6 +4148,8 @@ public class DoublyLinkedList {
             System.out.println("Minimum Element in the "
                                + " stack is: " + minEle);
     }
+
+    public MinStack() { this.s = new Stack<Node>(); }
     
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
