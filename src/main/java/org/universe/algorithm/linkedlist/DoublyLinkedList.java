@@ -4150,6 +4150,16 @@ public class DoublyLinkedList {
     }
 
     public MinStack() { this.s = new Stack<Node>(); }
+
+    public class Pair{
+        int element;
+        int minElement;
+    
+        public Pair(int element, int minElement) {
+        this.element = element;
+        this.minElement = minElement;
+        }
+    }
     
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
