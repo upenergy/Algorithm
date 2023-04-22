@@ -4160,6 +4160,16 @@ public class DoublyLinkedList {
         this.minElement = minElement;
         }
     }
+
+    public void addElement(int x) {
+        if(stack.size() == 0 || x < min)
+        {
+        min=x;
+        }
+        Pair pair = new Pair(x,min);
+        stack.add(pair);
+        System.out.println(x + " inserted successfully");
+    }
     
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
