@@ -63,6 +63,7 @@ https://www.geeksforgeeks.org/rearrange-given-list-consists-alternating-minimum-
 https://www.geeksforgeeks.org/flattening-a-linked-list/
 https://www.geeksforgeeks.org/make-middle-node-head-linked-list/
 https://www.geeksforgeeks.org/flatten-a-linked-list-with-next-and-child-pointers/
+<<<<<<< Updated upstream
 https://www.geeksforgeeks.org/level-maximum-number-nodes/
 https://www.geeksforgeeks.org/minimum-steps-reach-target-knight/
 https://www.geeksforgeeks.org/sliding-window-maximum-maximum-of-all-subarrays-of-size-k/#
@@ -80,3 +81,5 @@ https://www.geeksforgeeks.org/applications-advantages-and-disadvantages-of-stack
 https://www.geeksforgeeks.org/introduction-to-monotonic-stack-data-structure-and-algorithm-tutorials/
 https://www.geeksforgeeks.org/fundamentals-of-algorithms/
 
+=======
+>>>>>>> Stashed changes
