@@ -4170,6 +4170,18 @@ public class DoublyLinkedList {
         stack.add(pair);
         System.out.println(x + " inserted successfully");
     }
+
+    public int getLastElement() {
+        if (stack.size() == 0)
+        {
+        System.out.println("UnderFlow Error");
+        return -1;
+        }
+        else
+        {
+        return stack.get(stack.size() - 1).element;
+        }
+    }
     
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
